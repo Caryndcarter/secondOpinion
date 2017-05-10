@@ -22,8 +22,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Importing routes
-//========UNCOMMENT WHEN CONTROLLER.JS IS ESTABLISH=====//
-// var routes = require("./controllers/[controller folder]");
+
+var routes = require("./controllers/opinions_controller.js");
 
 app.use("/", routes);
 
