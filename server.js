@@ -23,6 +23,7 @@ var hbs = exphbs.create({
     defaultLayout: "main",
     partialsDir: ["views/partials/"]
 });
+
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
