@@ -9,6 +9,10 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
+router.post("/", function(req, res) {
+	console.log(req.body);
+});
+
 router.get("/admin", function(req, res) {
     res.render("admin");
     /*
