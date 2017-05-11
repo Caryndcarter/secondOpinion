@@ -20,7 +20,17 @@ CREATE TABLE doctors(
     clinical_trials_rating int(11) DEFAULT 0,
     patient_stars_rating int(11) DEFAULT 0,
     awards_rating int(11) DEFAULT 0, 
-    medicine_phD BOOLEAN DEFAULT 0, 
+    medicine_phD BOOLEAN DEFAULT 0,
+    removed BOOLEAN DEFAULT 0,
     primary key(doc_api_id)
 )
 
+CREATE TABLE patients(
+    patient_id int(11) NOT NULL AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    current_doctor varchar(50) NOT NULL,
+    diagnosis varchar(50) NOT NULL,
+    removed BOOLEAN DEFAULT 0,
+    primary key (patient_id)
+)
