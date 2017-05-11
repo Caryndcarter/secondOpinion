@@ -11,6 +11,11 @@ router.get("/", function(req, res) {
 
 router.get("/admin", function(req, res) {
     res.render("admin");
+    /*
+    db.Doctors.findAll({}).then(function(results) {
+    	res.render("index", { burgers: results });
+    });
+    */
 });
 
 module.exports = router;
