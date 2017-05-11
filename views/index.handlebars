@@ -1,11 +1,18 @@
 <div class="container">
     <div class="col-md-12">
+        <h2>Patient Request</h2>
+        <hr>
         <form class="create-form add-patient" action="/" method="POST">
             <div class="form-group">
                 <label for="patient_name">Name:</label>
-                <input type="text" name="" id="patient_name" placeholder="Full Name">
+                <input type="text" name="" id="patient_name" placeholder="Full Name" required>
                 <label for="email">E-mail:</label>
-                <input type="text" name="" id="email" placeholder="E-Mail">
+                <input type="text" name="" id="email" placeholder="E-Mail" required>
+                <label for="current_doctor">Current Doctor:</label>
+                <input type="text" name="" id="current_doctor" placeholder="Doctor's Name">
+                <label for="diagnosis">Diagnosis:</label>
+                <input type="text" name="" id="diagnosis" placeholder="Current Diagnosis">
+                <hr>
                 <h4>What type of specialist are you looking for?</h4>
                 <select data-placeholder="" class="speciality-select" id="speciality">
                     <option value="allergist">Allergist</option>
