@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
-        pratice_rating: {
+        practice_rating: {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
