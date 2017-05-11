@@ -21,7 +21,8 @@ var exphbs = require("express-handlebars");
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
-    partialsDir: ["views/partials/"]
+    partialsDir: ["views/partials/"],
+    helpersDir: ["views/helpers/"]
 });
 
 app.engine("handlebars", hbs.engine);
