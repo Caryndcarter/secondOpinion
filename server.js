@@ -18,10 +18,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
+var helpers = require("./views/helpers")
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
-    partialsDir: ["views/partials/"]
+    partialsDir: ["views/partials/"],
+    helpers: helpers
 });
 
 app.engine("handlebars", hbs.engine);
