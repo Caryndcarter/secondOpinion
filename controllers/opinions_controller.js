@@ -8,10 +8,6 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
-router.get("/signup", function(req, res) {
-    res.render("login");
-});
-
 router.post("/", function(req, res) {
 	// console.log(req.body);
 	db.Patients.create({

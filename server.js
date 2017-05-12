@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var passport = require("passport");
+var session = require("express-session");
 var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 
@@ -18,7 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.use(session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUnitialized: true
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());//persistent login
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
@@ -34,10 +42,12 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 //Importing routes
+var opinions = require("./controllers/opinions_controller.js");
+var auth = require("./controllers/authcontroller.js")(app, passport);
+require("./config/passport.js")(passport, db.user);
 
-var routes = require("./controllers/opinions_controller.js");
+app.use("/", opinions);
 
-app.use("/", routes);
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
