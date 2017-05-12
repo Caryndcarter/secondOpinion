@@ -35,7 +35,7 @@ var routes = require("./controllers/opinions_controller.js");
 
 app.use("/", routes);
 
-db.sequelize.sync({}).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log("Server Operational - Listening to Port " + PORT);
     });

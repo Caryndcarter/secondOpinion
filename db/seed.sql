@@ -8,14 +8,28 @@ INSERT INTO doctors (
     undergrad_rating,
     med_school_rating,
     residency_rating,
-    fellowship_rating
+    fellowship_rating,
     publications_rating,
     years_exp_rating,
     clinical_trials_rating,
     patient_stars_rating,
     awards_rating,
-    medicine_phD
+    medicine_phD,
+    createdAt,
+    updatedAt
 ) VALUES
-(1,"Dr.Strange", "neurology", "magic",1,2,3,4,5,6,7,8,9,10,11,1),
-(2,"Jarvis", "dermatology", "therapeutics",2,3,4,5,6,7,8,9,10,11,12,0),
-(3, "Dr. Crusher", "physical therapy", "immmunology",3,4,5,6,7,8,9,10,11,12,13,1)
+(1,"Dr.Strange", "neurology", "magic",1,2,3,4,5,6,7,8,9,10,11,1,0,0),
+(2,"Jarvis", "dermatology", "therapeutics",2,3,4,5,6,7,8,9,10,11,12,0,0,0),
+(3, "Dr. Crusher", "physical therapy", "immmunology",3,4,5,6,7,8,9,10,11,12,13,1,0,0);
+
+INSERT INTO patients (
+    name,
+    email,
+    current_doctor,
+    diagnosis,
+    createdAt,
+    updatedAt
+) VALUES
+("Jeff", "jeff@gmail.com", "Dr. Seymour Hopkins", "Lung Cancer", 0, 0),
+("Luke", "luke@gmail.com", "Dr. Strange", "Pigmentation Discoloration", 0, 0),
+("Anakin", "anakin@gmail.com", "Lord Sidious", "High Midichlorian", 0, 0);
