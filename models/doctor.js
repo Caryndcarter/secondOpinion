@@ -1,10 +1,36 @@
 module.exports = function(sequelize, DataTypes) {
     var Doctors = sequelize.define("Doctors", {
+        doc_id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER
+        },
         bestdoc_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        name: {
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        mid_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        medical_title: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -25,15 +51,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        current_role_rating: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        },
         practice_rating: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        },
-        undergrad_rating: {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
@@ -69,8 +87,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             defaultValue: 0
         },
-        medicine_phD: {
-            type: DataTypes.BOOLEAN,
+        total: {
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         removed: {
