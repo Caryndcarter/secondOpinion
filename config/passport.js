@@ -1,9 +1,9 @@
 var bCrypt = require("bcrypt-nodejs");
-var
+
 console.log("I've been called..ze passport");
 
 module.exports = function(passport, user) {
-    var User = user;
+    var User = user || {};
     var LocalStrategy = require("passport-local").Strategy;
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -29,7 +29,7 @@ module.exports = function(passport, user) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
 
-            User.findOne({
+            Users.findOne({
                 where: {
                     email: email
                 }

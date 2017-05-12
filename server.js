@@ -22,7 +22,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(session({
     secret: "keyboard cat",
     resave: true,
-    saveUnitialized: true
+    saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -44,7 +44,12 @@ app.set("view engine", "handlebars");
 //Importing routes
 var opinions = require("./controllers/opinions_controller.js");
 var auth = require("./controllers/authcontroller.js")(app, passport);
-require("./config/passport.js")(passport, db.user);
+db.Users.findOne({
+    where: {id: 1}
+}).then(function(result) {
+    console.log("NO IDEA");
+});
+require("./config/passport.js")(passport, db.Users);
 
 app.use("/", opinions);
 
