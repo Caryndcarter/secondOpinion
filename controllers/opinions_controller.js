@@ -8,6 +8,10 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
+router.get("/signup", function(req, res) {
+    res.render("login");
+});
+
 router.post("/", function(req, res) {
 	// console.log(req.body);
 	db.Patients.create({
@@ -15,16 +19,13 @@ router.post("/", function(req, res) {
 		email: req.body.email,
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
-
-		console.log('patient created!');
-
 		//DOCTOR MATCH CALCULATION GOES HERE
 
 	}).then(function(dbPatients) {
 		//send the results of the doctor match as a response object
-		
+
 		// res.json(dbPatients);
-		
+
 
 
 	});

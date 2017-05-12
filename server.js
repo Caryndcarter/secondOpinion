@@ -2,6 +2,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 
 var app = express();
@@ -16,9 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+
+
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
-var helpers = require("./views/helpers")
+var helpers = require("./views/helpers");
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
