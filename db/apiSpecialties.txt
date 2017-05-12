@@ -1,0 +1,803 @@
+
+=======================================
+
+Specialty "NAMES"
+
+=======================================
+
+Family Medicine Adult Medicine
+Family Medicine Addiction Medicine
+Emergency Medicine Undersea and Hyperbaric Medicine
+Clinical Genetics (M.D.)
+Emergency Medicine Sports Medicine
+Clinical Biochemical Genetics
+Child Abuse Pediatrics
+Emergency Medicine Emergency Medical Services
+Women's Health Nurse Practitioner
+Clinical Neurophysiology
+Vascular Surgery
+Vascular & Interventional Radiology
+Prescribing (Medical) Psychology
+Ph.D. Medical Genetics
+Psychiatry & Neurology Sports Medicine
+Occupational Vision
+Chiropractic Nutrition Medicine
+Obstetrics
+Mental Retardation & Developmental Disabilities
+Naturopath
+Neuromusculoskeletal Medicine, Sports Medicine
+Neonatology Nurse Practitioner
+Neonatal & Perinatal Medicine
+Molecular Genetic Pathology
+Occupational Therapist Driving and Community Mobility
+Chiropractic Occupational Health
+OBGYN Nurse Practitioner
+Kinesiotherapist
+Internal Medicine Hypertension Specialist
+Internal Medicine Hematology
+Internal Medicine Clinical Cardiac Electrophysiology
+Occupational Therapist Pediatrics
+Occupational Therapist Mental Health
+Occupational Therapist Low Vision
+Hepatology
+Hand Surgery
+Hematology
+Forensic Pathology
+Electrodiagnostic Medicine
+Gynecologic Oncology
+Geriatric Medicine
+Gerontology Nurse Practitioner
+General Dentistry
+Pediatric Infectious Disease
+Infectious Disease
+Hospice & Palliative Medicine
+Audiology
+Assistant, Podiatric
+Bariatric Medicine OBGYN
+Dance Therapist
+Chiropractics
+Clinical Child & Adolescent Psychology
+Chemical Pathology
+Adult Development & Aging Psychology
+Advanced Practice Dental Therapist
+Adult Health Nurse Practitioner
+Addiction Medicine
+Addiction Counseling
+Transplant Hepatology
+Pediatric Sleep Medicine
+Sports Medicine
+Sports Medicine Podiatry
+Physiastric Sports Medicine
+Pediatric Sport Medicine
+Specialist/Technologist Rehabilitation, Blind
+Technician/Technologist
+Surgery of the Hand
+Chiropractic Thermography
+Technician/Technologist Orthoptist
+Otolaryngologic Sleep Medicine
+Respiratory Therapist, Certified Emergency Care
+Respiratory Therapist, Registered
+Respiratory Therapist, Certified Pulmonary Rehabilitation
+Respiratory Therapist, Certified Palliative/Hospice
+Respiratory Therapist, Registered Pulmonary Function Technologist
+Respiratory Therapist, Registered Neonatal/Pediatrics
+Respiratory Therapist, Registered Geriatric Care
+Reproductive Endocrinology
+Rehabilitation Counselor Assistive Technology Practitioner
+Pulmonary Disease
+Plastic and Reconstructive Surgery
+Physical Therapy Assistant
+Pediatrics Medical Toxicology
+Pediatrics Hospice and Palliative Medicine
+Pediatric Surgery
+Pediatric Urology
+Pediatric Dentistry
+Orthopedic Physical Therapy
+Orthotic Fitter
+Orthopedic Surgery
+Psychiatry & Neurology Pain Medicine
+Psychiatry & Neurology Neuromuscular Medicine
+Prosthetist
+Preventive Medicine Clinical Informatics
+Specialist/Technologist
+Transplant Surgery
+Technician/Technologist Optometric Technician
+Technician/Technologist Optician
+Undersea and Hyperbaric Medicine
+Orthopedic Trauma
+Technician/Technologist Contact Lens
+Orthopedic Surgery of the Spine
+Radiological Physics
+Psychiatry & Neurology Neurodevelopmental Disabilities
+Respiratory Therapist, Certified Home Health
+Respiratory Therapist, Registered Home Health
+Respiratory Therapist, Registered Emergency Care
+Respiratory Therapist, Registered Educational
+Rehabilitation Counselor Assistive Technology Supplier
+Respiratory Therapist, Certified Pulmonary Function Technologist
+Respiratory Therapist, Certified Neonatal/Pediatrics
+Pediatric Endocrinology
+Pathology Clinical Informatics
+Pediatric Anesthesiology
+Pediatric Otolaryngology
+Pain Medicine
+Chiropractic Neurology
+Prosthodontics
+Foot & Ankle Surgery
+Pediatric Orthopedic Surgery
+Pediatrics Clinical & Laboratory Immunology
+Pediatric Rehabilitation Medicine
+Oral Medicinist
+Psychiatry & Neurology Vascular Neurology
+Psychiatry & Neurology Sleep Medicine
+Pediatric Allergy
+Pathology
+Pain Medicine
+Family Medicine Adolescent Medicine
+Ergonomic Physical Therapy
+Emergency Medicine
+Emergency Medicine Pediatric Emergency Medicine
+Clinical Exercise Physiologist
+Clinical Molecular Genetics
+Clinical Electrophysiology
+Clinical Cytogenetic
+Cardiovascular Disease
+Oral & Maxillofacial Surgery
+Neuromuscular Medicine
+Occupational Therapist Neurorehabilitation
+Occupational Therapist Hand
+Occupational Therapist Gerontology
+Occupational Therapist Feeding, Eating & Swallowing
+Immunopathology
+Hospice and Palliative Medicine
+Human Factor Physical Therapy
+Geriatrics Physical Therapy
+Medical Genetics, Ph.D. Medical Genetics
+Gastroenterology
+Health Psychology
+Hand Physical Therapy
+Family Psychology
+Foot and Ankle Surgery
+Family Medicine
+Dental Hygienist
+Allergy & Immunology
+Counseling
+Critical Care Medicine
+Corneal and Contact Management
+Colon & Rectal Surgery
+Addiction Psychology
+Chiropractic Sports Medicine
+Respiratory Therapist, Registered Palliative/Hospice
+Respiratory Therapist, Registered Patient Transport
+Respiratory Therapist, Registered General Care
+Technician/Technologist Ophthalmic
+Surgical Oncology
+Surgery Trauma Surgery
+Surgery Surgical Critical Care
+Respiratory Therapist, Registered Pulmonary Rehabilitation
+Specialist/Technologist Athletic Trainer
+School Psychology
+Technician/Technologist Optometric Assistant
+Technician/Technologist Ophthalmic Assistant
+Technician/Technologist Contact Lens Fitter
+Rehabilitation Counselor Orientation and Mobility Training Provider
+Radiation Oncology
+Recreation Therapist
+Rehabilitation Practitioner
+Respiratory Therapist, Certified Patient Transport
+Psychology
+Psychoanalysis
+Plastic Surgery Surgery of the Hand
+Periodontics
+Pediatric Neurology
+Pediatric Nephrology
+Neurology Physical Therapy
+Otolaryngic Allergy
+Neurodevelopmental Disability
+Neurology
+Preventive Sports Medicine
+Podiatrist Public Medicine
+Psychiatry & Neurology Hospice and Palliative Medicine
+Psychiatry & Neurology Bariatric Medicine
+Pediatric Transplant Hepatology
+Pediatric Pathology
+Pediatric Hematology & Oncology
+Maternal & Fetal Medicine
+Mastectomy Fitter
+Interventional Pain Medicine
+In Vivo & In Vitro Nuclear Medicine
+Family Medicine Bariatric Medicine
+Family Medicine Geriatric Medicine
+Endodontics
+Endocrinology, Diabetes & Metabolism
+Diagnostic Radiology
+Orthodontics
+Oral and Maxillofacial Radiology
+Urology Female Pelvic Medicine and Reconstructive Surgery
+Optometry
+Nurse Practitioner
+Medical Oncology
+Occupational Therapy Assistant Environmental Modification
+Occupational Therapist Physical Rehabilitation
+Podiatrist General Practice
+Internal Medicine Magnetic Resonance Imaging (MRI)
+Internal Medicine Allergy & Immunology
+Occupational Therapist Human Factors
+Nuclear Radiology
+Neuroradiology
+Massage Therapy
+Chiropractic Internal Medicine
+Gynecology
+Surgery
+General Practice
+Plastic Surgery within the Head & Neck
+Hospitalist
+Hospice and Palliative Medicine
+Hospice and Palliative Medicine
+Family Nurse Practitioner
+Diagnostic Neuroimaging
+Dermatopathology
+Dentist Dentist Anesthesiologist
+Child & Adolescent Psychiatry
+Cognitive & Behavioral Psychology
+Denturist
+Counseling Psychology
+Art Therapist
+Anatomic Pathology
+Dentist Dental Public Health
+Dental Assistant
+Cytopathology
+Pediatric Critical Care Medicine
+Adolescent Medicine
+Allergy & Immunology Clinical & Laboratory Immunology
+Addiction Medicine
+Medical Toxicology
+Pediatric Optometry
+Pediatrics
+Pastoral Counseling
+Orthotist
+Otolaryngology/Facial Plastic Surgery
+Pediatric Nurse Practitioner
+Pediatric Gastroenterology
+Podiatry
+Preventive Medicine
+Pediatric Emergency Medicine
+Nephrology
+Mental Health Counseling
+Dietitian, Registered
+Environmental Preventive Medicine
+Pediatric Cardiology
+Emergency Medicine Hospice and Palliative Medicine
+Cardiothoracic Surgery
+Diagnostic Ultrasound
+Hematology & Oncology
+Ophthalmology
+Otology & Neurotology
+Chiropractic Orthopedics
+Occupational Therapist Environmental Modification
+Occupational Therapist Ergonomics
+Nuclear Medicine
+Neurological 
+Neonatal, Critical Care Nurse Practitioner
+Neuromusculoskeletal Medicine & OMM
+Music Therapist
+Occupational Therapist
+Obstetrics & Gynecology
+Obstetrics & Gynecology Female Pelvic Medicine and Reconstructive Surgery
+Nutrition Medicine
+Medical Genetics Molecular Genetic Pathology
+Interventional Cardiology
+Clinical Pathology/Laboratory Medicine
+Internal Medicine
+Internal Medicine Sports Medicine
+Internal Medicine Bariatric Medicine
+Internal Medicine Adolescent Medicine
+Independent Medical Examiner
+Hospice and Palliative Medicine
+Audiology & Hearing Aid Fitter
+Critical Care Medicine
+Clinical Pharmacology
+Geriatric Psychiatry
+Forensic Psychology
+Developmental Behavioral Pediatrics
+Developmental Therapist
+Health Service Psychology
+Cardiopulmonary Physical Therapy
+Anesthesiology
+Aerospace Medicine
+Anaplastologist
+Clinical Psychology
+Addiction Psychiatry
+Acute Care Nurse Practitioner
+Acupuncture
+Technician/Technologist Ocularist
+School Counseling
+Respiratory Therapist, Registered Critical Care
+Respiratory Therapist, Certified SNF/Subacute Care
+Orthopedic Sports Medicine
+Respiratory Therapist, Certified Critical Care
+Psychiatry & Neurology Psychosomatic Medicine
+Psychiatry & Neurology Diagnostic Neuroimaging
+Psychiatry & Neurology Behavioral Neurology & Neuropsychiatry
+Procedural Dermatology
+Primary Podiatric Medicine
+Preventive Medical Toxicology
+Respiratory Therapist, Certified
+Respiratory Therapist, Certified Geriatric Care
+Respiratory Therapist, Certified Educational
+Respiratory Therapist, Certified General Care
+Adult Reconstructive orthopedic Surgery
+Chiropractic Radiology
+Surgery Hospice and Palliative Medicine
+Sports Vision
+Therapeutic Radiology
+Sports Physical Therapy
+Spinal Cord Injury Medicine
+Speech Therapy
+Respiratory Therapist, Registered SNF/Subacute Care
+Respiratory Therapist, Registered Pulmonary Diagnostics
+Respiratory Therapist, Certified Pulmonary Diagnostics
+Sleep Medicine
+Rheumatology
+Rehabilitation Psychology
+Radiology Podiatry
+Rehabilitation Counselor
+Chiropractic Rehabilitation
+Foot Surgery
+Physical Therapy
+Plastic Surgery
+Plastic Surgery Plastic Surgery Within the Head and Neck
+Pedorthist
+Physical Medicine & Rehabilitation
+Phlebology
+Pediatric Pulmonology
+Pediatric Rheumatology
+Pediatric Physical Therapy
+Pediatric Radiology
+Pulmonary Function Technologist
+Psychiatry & Neurology Forensic Psychiatry
+Pediatric Dermatology
+Psychiatry & Neurology Addiction Medicine
+Psychiatry
+Professional Counseling
+Primary Care Nurse Practitioner
+Family Medicine Hospice and Palliative Medicine
+Blood Banking & Transfusion Medicine
+Vision Therapy
+Medical Microbiology
+Chiropractic Pediatrics
+Pain Medicine
+Family Medicine Sleep Medicine
+Low Vision Rehabilitation
+Facial Plastic Surgery
+Otolaryngology
+Urology
+Oral & Maxillofacial Surgery
+Occupational Therapy Assistant Feeding, Eating & Swallowing
+Occupational Therapy Assistant Driving and Community Mobility
+Oral and Maxillofacial Pathology
+Occupational Therapy Assistant Low Vision
+Occupational Medicine
+Occupational Therapy Assistant
+Neuropathology
+MOHS-Micrographic Surgery
+Psych/Mental Health Nurse Practitioner
+Nuclear Imaging & Therapy
+Nuclear Cardiology
+Chiropractic Medical Examiner
+Legal Medicine
+Internal Medicine Clinical & Laboratory Immunology
+Group Psychotherapy
+Clinical & Laboratory Dermatological Immunology
+Dermatopathology
+Dermatology
+Dentistry
+Dental Therapist
+Dental Laboratory Technician
+Critical Care Medicine OBGYN
+Allergy & Immunology Allergy
+Clinical Pathology
+Body Imaging
+
+
+
+====================================================
+
+Specialty UIDs: 
+
+====================================================
+
+
+transplant-hepatologist
+surgery-surgery-of-the-hand
+sports-medicine-doctor
+sports-podiatrist
+sports-medicine-physiatrist
+thermography-chiropractor
+techniciantechnologist-orthoptist
+techniciantechnologist
+sport-medicine-pediatrician
+respiratory-therapist-registered-neonatalpediatrics
+respiratory-therapist-registered-geriatric-care
+respiratory-therapist-registered-pulmonary-function-technologist
+specialisttechnologist-rehabilitation-blind
+sleep-medicine-pediatrician
+sleep-medicine-otolaryngologist
+respiratory-therapist-registered
+respiratory-therapist-certified-pulmonary-rehabilitation
+respiratory-therapist-certified-palliativehospice
+prosthetist
+preventive-medicine-clinical-informatics
+psychiatry-neurology-pain-medicine
+psychiatry-neurology-neuromuscular-medicine
+respiratory-therapist-certified-emergency-care
+reproductive-erndocrinologist
+rehabilitation-counselor-assistive-technology-practitioner
+pulmonologist
+pediatrics-hospice-and-palliative-medicine
+pediatric-surgeon
+pediatric-urologist
+plastic-surgeon
+physical-therapy-assistant
+pediatrics-medical-toxicology
+pediatric-dentist
+orthopedic-physical-therapist
+orthotic-fitter
+orthopedic-surgeon
+medical-psychologist
+clinical-geneticist
+emergency-medicine-sports-medicine
+clinical-biochemical-geneticist
+child-abuse-pediatrician
+emergency-medicine-emergency-medical-services
+women-health-nurse-practitioner
+clinical-neurophysiologist
+family-medicine-adult-medicine
+family-medicine-addiction-medicine
+emergency-medicine-undersea-and-hyperbaric-medicine
+medical-geneticist
+vascular-surgeon
+vascular-interventional-radiologist
+psychiatry-neurology-sports-medicine
+occupational-vision-optometrist
+occupational-therapist-pediatrics
+occupational-therapist-mental-health
+occupational-therapist-driving-and-community-mobility
+occupational-chiropractor
+occupational-therapist-low-vision
+infectious-diseases-pediatrician
+obgyn-nurse-practitioner
+neonatal-nurse-practitioner
+neonatal-perinatal-pediatrician
+molecular-genetic-pathologist
+hospice-palliative-obgyn
+hepatologist
+hematopathologist
+nutrition-chiropractor
+obstetrician
+neuromusculoskeletal-medicine-sports-medicine
+naturopathic-doctor
+mental-retardation-psychologists
+internal-medicine-clinical-cardiac-electrophysiology
+infectious-disease-doctor
+kinesiotherapist
+internal-medicine-hypertension-specialist
+internal-medicine-hematology
+gynecologic-oncologist
+geriatric-medicine-doctor
+gerontology-nurse-practitioner
+forensic-pathologist
+electrodiagnostic-medicine
+general-dentist
+hand-orthopedist
+dance-therapist
+chiropractor
+clinical-child-psychologist
+bariatric-medicine-obgyn
+chemical-pathologist
+audiologist
+assistant-podiatric
+adult-psychologist
+advanced-practice-dental-therapist
+adult-nurse-practitioner
+addiction-specialist
+addiction-counselor
+respiratory-therapist-certified-pulmonary-function-technologist
+respiratory-therapist-certified-neonatalpediatrics
+respiratory-therapist-certified-home-health
+psychiatry-neurology-neurodevelopmental-disabilities
+rehabilitation-counselor-assistive-technology-supplier
+radiological-physicist
+prosthodontist
+podiatry-surgeon
+pediatrics-clinical-laboratory-immunology
+pediatric-rehabilitation-physiatrist
+pediatric-endocrinologist
+pathology-clinical-informatics
+pediatric-anesthesiologist
+pediatric-ear-nose-throat-doctor
+pain-medicine-anesthesiologist
+neurology-chiropractor
+pediatric-orhopedic-surgeon
+pediatric-allergist
+pain-medicine-physiatrist
+ergonomic-physical-therapist
+emergency-medicine-doctor
+emergency-medicine-pediatric-emergency-medicine
+clinical-exercise-physiologist
+clinical-molecular-geneticist
+electrophysiology-physical-therapist
+clinical-cytogeneticist
+cardiologist
+family-medicine-adolescent-medicine
+psychiatry-neurology-vascular-neurology
+psychiatry-neurology-sleep-medicine
+pathologist
+oral-maxillofacial-surgeon
+oral-medicinist
+occupational-therapist-neurorehabilitation
+immunopathologist
+hospice-palliative-medicine-radiologist
+occupational-therapist-hand
+neuromuscular-physiatrist
+occupational-therapist-gerontology
+occupational-therapist-feeding-eating-swallowing
+family-practitioner
+gastroenterologist
+family-psychologist
+foot-ankle-orthopedist
+hand-physical-therapist
+geriatric-physical-therapist
+geneticist
+human-factor-physical-therapist
+health-psychologist
+dental-hygienist
+counselor-specialist
+critical-care-anesthesiologist
+colorectal-surgeon
+corneal-contact-management-optometrist
+allergist
+addiction-psychologist
+transplant-surgery
+techniciantechnologist-optometric-technician
+techniciantechnologist-optician
+undersea-hyperbaric-medicine-doctor
+trauma-orthopedist
+techniciantechnologist-contact-lens
+respiratory-therapist-registered-home-health
+spine-orthopedist
+respiratory-therapist-registered-emergency-care
+respiratory-therapist-registered-educational
+specialisttechnologist
+techniciantechnologist-ophthalmic
+techniciantechnologist-optometric-assistant
+techniciantechnologist-ophthalmic-assistant
+techniciantechnologist-contact-lens-fitter
+surgical-oncologist
+sports-chiropractor
+specialisttechnologist-athletic-trainer
+school-psychologist
+respiratory-therapist-registered-palliativehospice
+respiratory-therapist-registered-patient-transport
+respiratory-therapist-registered-general-care
+surgery-trauma-surgery
+surgery-surgical-critical-care
+respiratory-therapist-registered-pulmonary-rehabilitation
+rehabilitation-practitioner
+psychologist
+psychoanalyst
+radiation-oncologist
+recreation-therapist
+psychiatry-neurology-hospice-and-palliative-medicine
+respiratory-therapist-certified-patient-transport
+rehabilitation-counselor-orientation-and-mobility-training-provider
+psychiatry-neurology-bariatric-medicine
+preventive-sports-medicine-doctor
+neurologist
+podiatrist-public-medicine
+pediatric-neurologist
+pediatric-nephrologist
+neurology-physical-therapist
+otolaryngic-allergist
+neurodevelopmental-disability-pediatrician
+plastic-surgery-surgery-of-the-hand
+periodontist
+pediatric-transplant-hepatologist
+pediatric-pathologist
+pediatric-oncologist
+maternal-fetal-medicine-obgyn
+mastectomy-fitter
+interventional-pain-management-doctor
+family-medicine-bariatric-medicine
+family-medicine-geriatric-medicine
+endotontist
+endocrinologist
+diagnostic-radiologist
+vivo-vitro-nuclear-medicine-doctor
+urology-female-pelvic-medicine-and-reconstructive-surgery
+optometrist
+orthodontist
+oral-radiologist
+occupational-therapy-assistant-environmental-modification
+occupational-therapist-physical-rehabilitation
+podiatrist-general-practice
+occupational-therapist-human-factors
+internist-chiropractor
+internal-medicine-magnetic-resonance-imaging-mri
+internal-medicine-allergy-immunology
+massage-therapist
+neuroradiologist
+medical-oncologist
+hospitalist
+hospice-palliative-physiatrist
+hospice-palliative-medicine-anesthesiologist
+head-neck-plastic-surgeon
+nurse-practitioner
+nuclear-radiologist
+dental-assistant
+family-nurse-practitioner
+dentist-dental-public-health
+general-surgeon
+general-practitioner
+gynecologist
+diagnostic-neuroimaging-radiologist
+dermatopathologist
+dentist-dentist-anesthesiologist
+cytopathologist
+critical-care-pediatrician
+cognitive-behavioral-psychologist
+denturist
+counceling-pshychologist
+child-psychiatrist
+anatomic-pathologist
+allergy-immunology-clinical-laboratory-immunology
+adolescent-medicine-pediatrician
+art-therapist
+addiction-medicine-anesthesiologist
+school-counselor
+respiratory-therapist-registered-critical-care
+respiratory-therapist-certified-snfsubacute-care
+respiratory-therapist-certified-geriatric-care
+respiratory-therapist-certified-educational
+respiratory-therapist-certified-general-care
+respiratory-therapist-certified-critical-care
+respiratory-therapist-certified
+preventive-medical-toxicologist
+podiatrist
+psychiatry-neurology-psychosomatic-medicine
+psychiatry-neurology-diagnostic-neuroimaging
+psychiatry-neurology-behavioral-neurology-neuropsychiatry
+procedural-dermatologist
+primary-podiatry-doctor
+preventive-medicine-doctor
+reconstructive-orthopedist
+radiology-chiropractor
+pediatric-gastroenterologist
+pediatric-medical-toxicologist
+pastoral-counselor
+orthotist
+otolaryngology-facial-plastic-surgeon
+pediatrician
+pediatric-optometrist
+pediatric-nurse-practitioner
+nephrologist
+mental-health-counselor
+pediatric-cardiologist
+diagnostic-ultrasound-radiologist
+otology-neurotologist
+dietitian
+environmental-preventive-medicine-doctor
+emergency-medicine-pediatrician
+emergency-medicine-hospice-and-palliative-medicine
+cardiothoracic-surgeon
+orthopedic-chiropractor
+ophthalmologist
+oncologist
+occupational-therapist-ergonomics
+nutritionist
+nuclear-medicine-doctor
+neurosurgeon
+occupational-therapist-environmental-modification
+occupational-therapist
+obstetrics-gynecologist
+obstetrics-gynecology-female-pelvic-medicine-and-reconstructive-surgery
+interventional-cardiologist
+laboratory-medicine-doctor
+internist
+internal-medicine-sports-medicine
+neonatal-critical-care-nurse-practitioner
+neuromusculoskeletal-medicine-doctor
+music-therapist
+medical-genetics-molecular-genetic-pathology
+geriatric-psychiatrist
+critical-care-doctor
+internal-medicine-bariatric-medicine
+internal-medicine-adolescent-medicine
+independent-medical-examiner
+hospice-care-palliative-doctor
+developmental-behavioral-pediatrician
+developmental-therapist
+forensic-psychologist
+hearing-aid-audiologist
+health-service-psychologist
+anesthesiologist
+cardiopulmonary-physical-therapist
+aerospace-medicine-doctor
+anaplastologist
+addiction-psychiatrist
+clinical-pharmacology
+clinical-psychologist
+acute-nurse-practitioner
+acupuncturist
+techniciantechnologist-ocularist
+sports-medicine-orthopedist
+rheumatologist
+respiratory-therapist-registered-snfsubacute-care
+respiratory-therapist-registered-pulmonary-diagnostics
+rehabilitation-psychologist
+respiratory-therapist-certified-pulmonary-diagnostics
+rehabilitation-counselor
+podiatry-foot-surgeon
+physical-therapist
+plastic-surgery-specialist
+plastic-surgery-plastic-surgery-within-the-head-and-neck
+pedorthist
+physiatrist
+phlebology
+psychiatry-neurology-addiction-medicine
+psychiatrist
+professional-counselor
+primary-care-nurse-practitioner
+pulmonary-function-technologist
+psychiatry-neurology-forensic-psychiatry
+radiology-podiatrist
+rehabilitation-chiropractor
+pediatric-radiologist
+family-medicine-sleep-medicine
+low-vision-rehabilitation-optometrist
+family-medicine-hospice-and-palliative-medicine
+medical-microbiologist
+facial-plastic-surgeon
+ear-nose-throat-doctor
+blood-banking-transfusion-doctor
+pediatric-dermatologist
+pediatric-pulmonologist
+pediatric-rheumatologist
+pediatric-physical-therapist
+pediatric-chiropractor
+pain-management-doctor
+oral-surgeon
+oral-pathologist
+vision-therapy-optometrist
+urologist
+occupational-therapy-assistant-driving-and-community-mobility
+occupational-therapy-assistant-low-vision
+occupational-therapy-assistant-feeding-eating-swallowing
+occupational-therapy-assistant
+dermatopathology-doctor
+dermatologist
+immunodermatologist
+internal-medicine-clinical-laboratory-immunology
+group-psychotherapy-psychologist
+allergy-immunology-allergy
+clinical-pathologist
+dentist
+dental-therapist
+dental-laboratory-technician
+critical-care-obgyn
+body-imaging-radiologist
+occupational-medicine-doctor
+nuclear-imaging-doctor
+nuclear-cardiologist
+neuropathologist
+micrographic-surgeon
+mental-health-nurse-practitioner
+medical-examiner-chiropractor
+legal-medicine
+spinal-cord-injury-physiatrist
+speech-therapist
+therapeutic-radiologist
+sleep-medicine-doctor
+surgery-hospice-and-palliative-medicine
+sports-vision-optometrist
+sport-physical-therapist
