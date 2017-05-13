@@ -32,8 +32,10 @@ router.get("/admin", function(req, res) {
     }).then(function(dbDoctors) {
     	//Feed the relevant information into the doctor section of the  handlebars template
 
-    	//for now, displaying the empty doctors data.
-    	res.json(dbDoctors);
+    	//for now, displaying a dummy page.
+    	res.render('admin');
+
+    	// res.render('admin', {doctors: results});
     });
 
     //Pull all the patient data from MySQL
