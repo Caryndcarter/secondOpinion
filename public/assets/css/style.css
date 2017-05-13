@@ -2,6 +2,11 @@
     margin: 0 auto;
 }
 
+.meds {
+	margin: 0 auto;
+	position: static;
+}
+
 .footer-hs {
     position: absolute;
     left: 0;
