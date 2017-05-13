@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     var Doctors = sequelize.define("Doctors", {
+        doc_id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataTypes.INTEGER
+        },
         bestdoc_id: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -25,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         title: {
             type: DataTypes.STRING,
             defaultValue: "None"
-        },
+       },
         primary_specialty: {
             type: DataTypes.STRING,
             defaultValue: "None"
