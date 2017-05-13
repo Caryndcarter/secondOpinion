@@ -50,8 +50,17 @@ require("./config/passport.js")(passport, db.User);
 app.use("/", opinions);
 //Default Page for all unknown url
 app.get("*", function(req, res) {
-	res.redirect("/")
+	res.redirect("/");
 });
+//404 pages
+// app.use(function (req, res) {
+//   // res.status(404).send("Sorry can't find that!");
+//   //sets status for 404 error
+//   res.status(404);
+//   //for now, just rendering the index page
+//   res.render('index');
+// });
+
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
