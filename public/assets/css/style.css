@@ -32,8 +32,71 @@
 	font-weight: 10px;
 }
 
-body {
+.col-md-4 {
+	
+}
 
+.steve {
+	position: static;
+	padding: 10px;
+    border: 1px solid #77aaff;
+    box-shadow:  -1px 1px #77aaff,
+         -2px 2px #77aaff,
+         -3px 3px #77aaff,
+         -4px 4px #77aaff,
+         -5px 5px #77aaff;
+}
+
+.george {
+	position: static;
+    padding: 10px;
+    border: 1px solid #008fb3;
+    box-shadow:  -1px 1px #008fb3,
+         -2px 2px #008fb3,
+         -3px 3px #008fb3,
+         -4px 4px #008fb3,
+         -5px 5px #008fb3;
+}
+
+.dave {
+	position: static;
+	padding: 10px;
+    border: 1px solid #99e6e6;
+    box-shadow:  -1px 1px #99e6e6,
+         -2px 2px #99e6e6,
+         -3px 3px #99e6e6,
+         -4px 4px #99e6e6,
+         -5px 5px #99e6e6;
+}
+
+.welcome-page {
+	padding: 5px;
+	height: 400px;
+}
+
+.dcbrown {
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.welcome-text {
+	padding: 5px;
+	font-size: 150%;
+    color: #444;
+	text-shadow: 
+	   1px 0px 1px #ccc, 0px 1px 1px #eee, 
+	   2px 1px 1px #ccc, 1px 2px 1px #eee,
+	   3px 2px 1px #ccc, 2px 3px 1px #eee,
+	   4px 3px 1px #ccc, 3px 4px 1px #eee,
+	   5px 4px 1px #ccc, 4px 5px 1px #eee,
+	   6px 5px 1px #ccc, 5px 6px 1px #eee,
+	   7px 6px 1px #ccc;
+
+}
+
+body {
+		background-color: #f2f2f2;
 }
 
 h1 {
