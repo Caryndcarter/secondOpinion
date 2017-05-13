@@ -16,16 +16,14 @@ router.post("/", function(req, res) {
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
 
-		console.log('patient created!');
+		// console.log('patient created!');
 
 		//DOCTOR MATCH CALCULATION GOES HERE
 
 	}).then(function(dbPatients) {
 		//send the results of the doctor match as a response object
-		
-		// res.json(dbPatients);
-		
 
+		// res.json(dbPatients);
 
 	});
 });
