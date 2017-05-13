@@ -3,6 +3,7 @@ INSERT INTO doctors (
     first_name,
     mid_name,
     last_name,
+    title,
     primary_specialty,
     secondary_specialty,
     practice_rating,
@@ -26,10 +27,11 @@ INSERT INTO patients (
     name,
     email,
     current_doctor,
+    match_doctor,
     diagnosis,
     createdAt,
     updatedAt
 ) VALUES
-("Jeff", "jeff@gmail.com", "Dr. Seymour Hopkins", "Lung Cancer", 0, 0),
-("Luke", "luke@gmail.com", "Dr. Strange", "Pigmentation Discoloration", 0, 0),
-("Anakin", "anakin@gmail.com", "Lord Sidious", "High Midichlorian", 0, 0);
+("Jeff", "jeff@gmail.com", "Dr. Seymour Hopkins", "Dr. Strange Duck","Lung Cancer", 0, 0),
+("Luke", "luke@gmail.com", "Dr. Strange", "Dr. Love", "Pigmentation Discoloration", 0, 0),
+("Anakin", "anakin@gmail.com", "Lord Sidious", "Dr. Jar Jar", "High Midichlorian", 0, 0);
