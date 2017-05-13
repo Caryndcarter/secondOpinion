@@ -1,7 +1,5 @@
 # secondOpinion
 
-Caryn Carter and Paul S: NEVER FORGET
+Paul S: NEVER FORGET
 
-I won't forget!!
-I'm changing something.
-another change
+I've done more work on this than Paul!
