@@ -45,7 +45,7 @@ app.set("view engine", "handlebars");
 var opinions = require("./controllers/opinions_controller.js");
 var authroute = require("./controllers/authcontroller.js")(app, passport);
 
-require("./config/passport.js")(passport, db.User);
+require("./config/passport.js")(passport, db.Patients);
 
 app.use("/", opinions);
 //Default Page for all unknown url

@@ -1,7 +1,7 @@
 //Dependencies
 module.exports = function(app, passport) {
     app.get("/signup", function(req, res) {
-        res.render("signup");
+        res.render("/index");
     });
 
     app.get("/signin", function(req, res) {
@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get("/dashboard", function(req, res) {
+    app.get("/dashboard", isLoggedIn, function(req, res) {
         res.render("dashboard");
     });
 
@@ -26,7 +26,19 @@ module.exports = function(app, passport) {
     
     app.post("/signup", passport.authenticate("local-signup", {
         successRedirect: "/dashboard",
-        failureRedirect: "/signup"
+        failureRedirect: "/"
     }
     ));
+
+    app.post("/signin", passport.authenticate("local-signin", {
+        successRedirect: "/dashboard",
+        failureRedirect: "/"
+    }
+    ));
+
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+        res.redirect("/")
+    }
 }
