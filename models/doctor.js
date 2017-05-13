@@ -13,10 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         mid_name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            defaultValue: "None"
         },
         last_name: {
             type: DataTypes.STRING,
@@ -25,19 +22,17 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        title: {
+            type: DataTypes.STRING,
+            defaultValue: "None"
+        },
         primary_specialty: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            defaultValue: "None"
         },
         secondary_specialty: {
             type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                len: [1]
-            }
+            defaultValue: "None"
         },
         practice_rating: {
             type: DataTypes.INTEGER,
