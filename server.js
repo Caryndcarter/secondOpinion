@@ -2,6 +2,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var passport = require("passport");
+var session = require("express-session");
+var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 
 var app = express();
@@ -16,9 +19,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.use(session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());//persistent login
+
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
-var helpers = require("./views/helpers")
+var helpers = require("./views/helpers");
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
@@ -30,10 +42,16 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 //Importing routes
+var opinions = require("./controllers/opinions_controller.js");
+var authroute = require("./controllers/authcontroller.js")(app, passport);
 
-var routes = require("./controllers/opinions_controller.js");
+require("./config/passport.js")(passport, db.User);
 
-app.use("/", routes);
+app.use("/", opinions);
+//Default Page for all unknown url
+app.get("*", function(req, res) {
+	res.redirect("/")
+});
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {

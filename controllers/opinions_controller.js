@@ -15,11 +15,13 @@ router.post("/", function(req, res) {
 		email: req.body.email,
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
-
 		//DOCTOR MATCH CALCULATION GOES HERE
 
 	}).then(function(dbPatients) {
 		//send the results of the doctor match as a response object
+
+
+		// res.json(dbPatients);
 
 		// res.json(dbPatients);
 
@@ -36,6 +38,8 @@ router.get("/admin", function(req, res) {
     	res.render('admin');
 
     	// res.render('admin', {doctors: results});
+
+    	// res.json(dbDoctors);
     });
 
     //Pull all the patient data from MySQL
@@ -47,7 +51,7 @@ router.get("/admin", function(req, res) {
 
     //keeping below for reference
 
-    // res.render("admin");
+    res.render("admin");
     /*
     db.Doctors.findAll({}).then(function(results) {
     	res.render("index", { burgers: results });

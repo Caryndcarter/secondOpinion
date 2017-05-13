@@ -8,12 +8,28 @@
 }
 
 .footer-hs {
-    position: absolute;
     left: 0;
     bottom: 0;
     height: 100px;
     width: 100%;
     overflow:hidden;
+}
+
+.header-hs {
+	border-bottom-width: 5px;
+}
+
+.navbar-brand {
+	padding: 5px;
+}
+
+.logo {
+	height: 45px;
+	width: 125px;
+}
+
+.all-doctors-page {
+	font-weight: 10px;
 }
 
 body {
@@ -28,7 +44,7 @@ h1 {
 }
 
 h2 {
-	font-size: 14px;
+	font-size: 24px;
 	color: #2eb8b8;
 	
 }
