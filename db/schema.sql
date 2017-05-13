@@ -20,7 +20,7 @@ CREATE TABLE doctors(
     clinical_trials_rating int(11) DEFAULT 0,
     patient_stars_rating int(11) DEFAULT 0,
     awards_rating int(11) DEFAULT 0, 
-    total int(11) DEFAULT 0. 
+    total int(11) DEFAULT 0, 
     removed BOOLEAN DEFAULT 0,
     primary key(doc_id)
 )
