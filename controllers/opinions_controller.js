@@ -16,7 +16,7 @@ router.post("/", function(req, res) {
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
 
-		console.log('patient created!');
+		
 
 		//DOCTOR MATCH CALCULATION GOES HERE
 
@@ -24,7 +24,7 @@ router.post("/", function(req, res) {
 		//send the results of the doctor match as a response object
 		
 		// res.json(dbPatients);
-		
+		console.log('patient created!');
 
 
 	});
