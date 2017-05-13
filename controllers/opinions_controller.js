@@ -33,7 +33,7 @@ router.get("/admin", function(req, res) {
     	//Feed the relevant information into the doctor section of the  handlebars template
 
     	//for now, displaying the empty doctors data.
-    	res.json(dbDoctors);
+    	// res.json(dbDoctors);
     });
 
     //Pull all the patient data from MySQL
@@ -45,7 +45,7 @@ router.get("/admin", function(req, res) {
 
     //keeping below for reference
 
-    // res.render("admin");
+    res.render("admin");
     /*
     db.Doctors.findAll({}).then(function(results) {
     	res.render("index", { burgers: results });
