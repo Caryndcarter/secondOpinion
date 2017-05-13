@@ -30,6 +30,10 @@ module.exports = function(sequelize, DataTypes) {
         last_login: {
             type: DataTypes.DATE
         },
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'

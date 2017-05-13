@@ -43,17 +43,15 @@ app.set("view engine", "handlebars");
 
 //Importing routes
 var opinions = require("./controllers/opinions_controller.js");
-var auth = require("./controllers/authcontroller.js")(app, passport);
-// debugger;
-// db.User.findOne({
-//     where: {id: 1}
-// }).then(function(result) {
-//     console.log("NO IDEA");
-// });
+var authroute = require("./controllers/authcontroller.js")(app, passport);
+
 require("./config/passport.js")(passport, db.User);
 
 app.use("/", opinions);
-
+//Default Page for all unknown url
+app.get("*", function(req, res) {
+	res.redirect("/")
+});
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
