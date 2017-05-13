@@ -36,37 +36,8 @@
 	
 }
 
-.steve {
-	position: static;
-	padding: 10px;
-    border: 1px solid #77aaff;
-    box-shadow:  -1px 1px #77aaff,
-         -2px 2px #77aaff,
-         -3px 3px #77aaff,
-         -4px 4px #77aaff,
-         -5px 5px #77aaff;
-}
-
-.george {
-	position: static;
-    padding: 10px;
-    border: 1px solid #008fb3;
-    box-shadow:  -1px 1px #008fb3,
-         -2px 2px #008fb3,
-         -3px 3px #008fb3,
-         -4px 4px #008fb3,
-         -5px 5px #008fb3;
-}
-
-.dave {
-	position: static;
-	padding: 10px;
-    border: 1px solid #99e6e6;
-    box-shadow:  -1px 1px #99e6e6,
-         -2px 2px #99e6e6,
-         -3px 3px #99e6e6,
-         -4px 4px #99e6e6,
-         -5px 5px #99e6e6;
+.information {
+	width: 100%;
 }
 
 .welcome-page {
