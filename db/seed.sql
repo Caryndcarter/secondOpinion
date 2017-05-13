@@ -1,11 +1,11 @@
 INSERT INTO doctors (
     bestdoc_id,
-    name,
+    first_name,
+    mid_name,
+    last_name,
     primary_specialty,
     secondary_specialty,
-    current_role_rating,
     practice_rating,
-    undergrad_rating,
     med_school_rating,
     residency_rating,
     fellowship_rating,
@@ -14,13 +14,13 @@ INSERT INTO doctors (
     clinical_trials_rating,
     patient_stars_rating,
     awards_rating,
-    medicine_phD,
+    total, 
     createdAt,
     updatedAt
 ) VALUES
-(1,"Dr.Strange", "neurology", "magic",1,2,3,4,5,6,7,8,9,10,11,1,0,0),
-(2,"Jarvis", "dermatology", "therapeutics",2,3,4,5,6,7,8,9,10,11,12,0,0,0),
-(3, "Dr. Crusher", "physical therapy", "immmunology",3,4,5,6,7,8,9,10,11,12,13,1,0,0);
+(1,"Dr.", "M", "Strange", "neurology", "magic",1,2,3,4,5,6,7,8,9,0,0),
+(2,"Jarvis", "computer of", "Iron Man", "prosthetics", "therapeutics",2,3,4,5,6,7,8,9,10,0,0),
+(3, "Dr.", "Beverly", "Crusher", "general medicine", "cellular genetics",3,4,5,6,7,8,9,10,11,0,0);
 
 INSERT INTO patients (
     name,

@@ -16,29 +16,41 @@ router.post("/", function(req, res) {
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
 
-		
-
 		//DOCTOR MATCH CALCULATION GOES HERE
 
 	}).then(function(dbPatients) {
 		//send the results of the doctor match as a response object
-		
-		// res.json(dbPatients);
-		console.log('patient created!');
 
+		// res.json(dbPatients);
 
 	});
 });
 
 router.get("/admin", function(req, res) {
-    res.render("admin");
+	//pull all the doctor data from MySQL
+	db.Doctors.findAll({
+    }).then(function(dbDoctors) {
+    	//Feed the relevant information into the doctor section of the  handlebars template
+
+    	//for now, displaying the empty doctors data.
+    	res.json(dbDoctors);
+    });
+
+    //Pull all the patient data from MySQL
+    db.Patients.findAll({
+    }).then(function(dbPatients) {
+    	//Feed the relevant information into the patient section of the handlebars template
+    	// res.json(dbDoctors);
+    });
+
+    //keeping below for reference
+
+    // res.render("admin");
     /*
     db.Doctors.findAll({}).then(function(results) {
     	res.render("index", { burgers: results });
     });
     */
-
-
 
 });
 
