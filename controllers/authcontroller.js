@@ -8,10 +8,17 @@ module.exports = function(app, passport) {
         res.render("signup");
     });
 
+    app.get("/logout", function(req, res) {
+        req.session.destroy(function(err) {
+            res.redirect("/");
+        });
+    });
+
     app.post("/signup", passport.authenticate("local-signup", {
         successRedirect: "/dashboard",
-
         failureRedirect: "/signup"
+    }, function(req, res) {
+        res.redirect("/");
     }
     ));
 }

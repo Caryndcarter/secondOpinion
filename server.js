@@ -44,12 +44,13 @@ app.set("view engine", "handlebars");
 //Importing routes
 var opinions = require("./controllers/opinions_controller.js");
 var auth = require("./controllers/authcontroller.js")(app, passport);
-db.Users.findOne({
-    where: {id: 1}
-}).then(function(result) {
-    console.log("NO IDEA");
-});
-require("./config/passport.js")(passport, db.Users);
+// debugger;
+// db.User.findOne({
+//     where: {id: 1}
+// }).then(function(result) {
+//     console.log("NO IDEA");
+// });
+require("./config/passport.js")(passport, db.User);
 
 app.use("/", opinions);
 

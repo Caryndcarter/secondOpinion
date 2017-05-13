@@ -5,6 +5,7 @@ console.log("I've been called..ze passport");
 module.exports = function(passport, user) {
     var User = user || {};
     var LocalStrategy = require("passport-local").Strategy;
+
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -28,12 +29,12 @@ module.exports = function(passport, user) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
-
-            Users.findOne({
+            User.findOne({
                 where: {
                     email: email
                 }
             }).then(function(user) {
+
                 if (user) {
                     return done(null, false, {
                         message: "Email is already taken"
@@ -47,13 +48,19 @@ module.exports = function(passport, user) {
                         lastname: req.body.lastname
                     };
 
-                    User.create(data).then(function(newUser, created) {
+                    User.create(data)
+                    .then(function(newUser, created) {
+                        debugger;
                         if (!newUser) {
+                            debugger;
                             return done(null, false);
                         }
                         if (newUser) {
                             return done(null, newUser);
                         }
+                    })
+                    .catch(function(error) {
+                        debugger;
                     });
                 }
             });
