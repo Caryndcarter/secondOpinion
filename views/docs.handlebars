@@ -1,7 +1,11 @@
 <h1>All the Doctors we have on record:</h1>
-{{#each doctors}}
-      <p>Name: {{firstName}} {{lastName}}</p>
-      <p>: {{pet}}</p>
-      <p>Fierceness: {{fierceness}}</p>
-      <br>
-  {{/each}}
+
+<div class="all-doctors-page">
+	{{#each doctors}}
+	      <p>Name: {{this.first_name}} {this.last_name}}</p>
+	      <p>Title: {{this.title}}</p>
+	      <p>Main Specialty: {{this.primary_specialty}}</p>
+	      <p>Total Rating: {{this.total}}</p>
+	      <br>
+	{{/each}}
+</div>
