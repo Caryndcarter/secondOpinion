@@ -87,3 +87,8 @@ h2 {
 .form-horizontal {
     padding-left: 20px;
 }
+
+.register-row,
+.login-row {
+    padding: 10px;
+}
