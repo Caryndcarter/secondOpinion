@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-8">
     {{#if user}}
-      <p>Welcome, {{user.firstname}}</p>
+      <p>Welcome, {{user.firstname}} {{user.lastname}}</p>
       <p class="navbar-text navbar-right"><a href="/logout">Log Out</a></p>
     {{else}}
       <form id="signin" name="signin" method="post" action="signin">
