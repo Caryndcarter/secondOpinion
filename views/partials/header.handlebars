@@ -11,14 +11,6 @@
       <p>Welcome, {{user.firstname}} {{user.lastname}}</p>
       <p class="navbar-text navbar-right"><a href="/logout">Log Out</a></p>
     {{else}}
-      <form id="signin" name="signin" method="post" action="signin">
-      	    <label for="username">Username</label>
-      	    <input class="text" name="username" type="text" />
-      	    <label for="password">Password</label>
-      	    <input name="password" type="password" />
-      	    <input class="btn" type="submit" value="Sign In" />
-          </div>
-      </form>
     {{/if}}
   </div>
 
