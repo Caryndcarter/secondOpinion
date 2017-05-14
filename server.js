@@ -56,7 +56,7 @@ app.use("/", opinions);
 app.get("*", function(req, res) {
 	res.redirect("/");
 });
-//404 pages
+// //404 pages
 // app.use(function (req, res) {
 //   // res.status(404).send("Sorry can't find that!");
 //   //sets status for 404 error
