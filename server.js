@@ -27,6 +27,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());//persistent login
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+});
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
