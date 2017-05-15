@@ -5,7 +5,7 @@ USE second_opinion_db;
 
 CREATE TABLE doctors(
 	doc_id int(11) NOT NULL AUTO_INCREMENT,
-    bestdoc_id int(50) NOT NULL,
+    bestdoc_id varchar(50) NOT NULL,
     first_name varchar(50) NOT NULL,
     mid_name varchar(50) DEFAULT NULL,
     last_name varchar(50) NOT NULL,
