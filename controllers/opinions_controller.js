@@ -40,6 +40,12 @@ router.get("/admin", function(req, res) {
 });
 
 
+router.get("/api/docs", function(req, res) {
+    db.Doctors.findAll({}).then(function(results) {
+        res.render("docs", { doctors: results });
+    });
+})
+
 
 	//pull all the doctor data from MySQL
     	//Feed the relevant information into the doctor section of the  handlebars template
@@ -50,11 +56,7 @@ router.get("/admin", function(req, res) {
     	// res.json(dbDoctors);
     //keeping below for reference
     // res.render("admin");
-    /*
-    db.Doctors.findAll({}).then(function(results) {
-    	res.render("index", { burgers: results });
-    });
-    */
+   
 
 
 
