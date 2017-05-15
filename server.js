@@ -27,6 +27,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());//persistent login
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    next();
+});
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
@@ -50,8 +54,17 @@ require("./config/passport.js")(passport, db.Patients);
 app.use("/", opinions);
 //Default Page for all unknown url
 app.get("*", function(req, res) {
-	res.redirect("/")
+	res.redirect("/");
 });
+// //404 pages
+// app.use(function (req, res) {
+//   // res.status(404).send("Sorry can't find that!");
+//   //sets status for 404 error
+//   res.status(404);
+//   //for now, just rendering the index page
+//   res.render('index');
+// });
+
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {

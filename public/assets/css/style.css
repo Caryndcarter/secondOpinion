@@ -1,4 +1,5 @@
-.gandalf {
+.gandalf,
+.morpheus {
     margin: 0 auto;
 }
 
@@ -31,7 +32,7 @@
 }
 
 .col-md-4 {
-	
+
 }
 
 .information {
@@ -53,8 +54,8 @@
 	padding: 5px;
 	font-size: 150%;
     color: #444;
-	text-shadow: 
-	   1px 0px 1px #ccc, 0px 1px 1px #eee, 
+	text-shadow:
+	   1px 0px 1px #ccc, 0px 1px 1px #eee,
 	   2px 1px 1px #ccc, 1px 2px 1px #eee,
 	   3px 2px 1px #ccc, 2px 3px 1px #eee,
 	   4px 3px 1px #ccc, 3px 4px 1px #eee,
@@ -78,5 +79,14 @@ h1 {
 h2 {
 	font-size: 24px;
 	color: #2eb8b8;
-	
+
+}
+
+.form-horizontal {
+    padding-left: 20px;
+}
+
+.register-row,
+.login-row {
+    padding: 10px;
 }
