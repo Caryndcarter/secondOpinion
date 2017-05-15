@@ -1,0 +1,79 @@
+<div class="container-fluid main-screen">
+
+    <div class="col-md-4" steve>
+        <img class="dcbrown" src="/assets/dcbrown.jpg">
+    </div>
+
+    <div class="col-md-4" steve>
+        <p class="welcome-text">
+            Welcome to Second Opinion! An application to help you to get another opinion with what your doctor has told you!
+        </p>
+    </div>
+
+    <div class="col-md-4" steve>
+        <div class="row login-row">
+            <p>Welcome back!</p>
+            <button class="btn btn-primary btn-lg" data-target="#login-modal" data-toggle="modal" type="button">Login</button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="login-modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/signin" class="form-horizontal" id="sign" method="post" name="signin">
+                                <div class="form-group login-btn">
+                                    <label for="username">Username</label>
+                                    <input class="text" name="username" type="text" />
+                                    <label for="password">Password</label>
+                                    <input name="password" type="password" />
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                            <input class="btn btn-danger" type="submit" value="Sign In">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row register-row">
+            <p>Don't have an account?</p>
+            <button class="btn btn-primary btn-lg" data-target="#register-modal" data-toggle="modal" type="button">Register</button>
+            <div aria-labelledby="myModalLabel" class="modal fade" id="register-modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Create An Account</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/signup" class="form-horizontal" id="signup" method="post" name="signup">
+                                <div class="form-group information">
+                                    <label for="email">E-mail Address</label>
+                                    <input class="text form-control" name="email" type="email">
+                                    <label for="username">Username</label>
+                                    <input class="form-control" name="username" type="text">
+                                    <label for="firstname">First Name</label>
+                                    <input class="form-control" name="firstname" type="text">
+                                    <label for="lastname">Last Name</label>
+                                    <input class="form-control" name="lastname" type="text">
+                                    <label for="password">Password</label>
+                                    <input class="form-control" name="password" type="password">
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                            <input class="btn btn-danger" type="submit" value="Sign Up">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div
+</div>
+
+
