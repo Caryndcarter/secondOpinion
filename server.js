@@ -47,11 +47,11 @@ app.set("view engine", "handlebars");
 
 //Importing routes
 var opinions = require("./controllers/opinions_controller.js");
-var authroute = require("./controllers/authcontroller.js")(app, passport);
-
+var authroute = require("./controllers/authcontroller.js");
 require("./config/passport.js")(passport, db.Patients);
 
 app.use("/", opinions);
+app.use("/", authroute);
 //Default Page for all unknown url
 app.get("*", function(req, res) {
 	res.redirect("/");

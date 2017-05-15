@@ -40,9 +40,7 @@ h2 {
 }
 
 .footer-hs {
-    height: 100px;
-    width: 100%;
-    overflow:hidden;
+    text-align: center;
 }
 
 .header-hs {
@@ -94,6 +92,11 @@ h2 {
 	   6px 5px 1px #ccc, 5px 6px 1px #eee,
 	   7px 6px 1px #ccc;
 
+}
+
+.user-text {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .form-horizontal {
