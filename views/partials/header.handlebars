@@ -6,10 +6,10 @@
    		<a class="navbar-brand" href="/">
         <img class="logo" alt="Brand" src="assets/betterLogonewback.jpg"></a>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-3 col-md-offset-3 navbar-text navbar-right">
     {{#if user}}
-      <p>Welcome, {{user.firstname}} {{user.lastname}}</p>
-      <p class="navbar-text navbar-right"><a href="/logout">Log Out</a></p>
+      <p class="user-text">Welcome, {{user.firstname}} {{user.lastname}}</p>
+      <p><a href="/logout">Log Out</a></p>
     {{else}}
     {{/if}}
   </div>
