@@ -84,7 +84,8 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0
         },
     },
-        {
+        {   
+            timestamps: false,
             classMethods: {
                 associate: function(models) {
                     Doctors.hasMany(models.Patients, {});

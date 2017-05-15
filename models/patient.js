@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Patients = sequelize.define("Patients", {
-        id: {
+        patient_id: {
             autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER
@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
         status: {
             type: DataTypes.ENUM("active", "inactive"),
             defaultValue: "active"
-        }
+        },
     },
         {
             classMethods: {
