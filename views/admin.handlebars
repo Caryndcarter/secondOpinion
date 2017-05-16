@@ -4,7 +4,7 @@
 
 
 
-            <div class="container">
+<div class="container">
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-doctors-modal" data-toggle="modal" type="button" role="button">Show all doctors</a>
               <div aria-labelledby="myModalLabel" class="modal fade" id="all-doctors-modal" role="dialog" tabindex="-1">
                   <div class="modal-dialog" role="document">
@@ -36,7 +36,7 @@
 <!-------------------------------------------------------------------------------------------->
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
 
-        <div aria-labelledby="myModalLabel" class="modal fade" id="all-patients-modal" role="dialog" tabindex="-1">
+        <div aria-labelledby="myModalLabel" class="modal fade" id="all-admins-modal" role="dialog" tabindex="-1">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
@@ -68,12 +68,14 @@
                                             <form action="{{this.patient_id}}?_method=PUT" method="POST">                                                
                                                 <input type="hidden" name="removed" value="true">
                                                 <button class="btn-primary" type="submit">Revode Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                            </form>
                                         </td>
-                                </form>
+                                
                                       </tr>
                                     </tbody>
                                 {{/if}}
                             {{/each}}
+                                </table>
                             </div>
                         </div>
                       </div>
@@ -123,6 +125,7 @@
                                                 {{/if}}
                                             {{/each}}
                                         </tbody>
+                                    </table>
 
                             </div>
                         </div>
@@ -135,23 +138,7 @@
       </div>
 
 <!-------------------------------------------------------------------------------------------->
-                <div class="col-md-6">
-                	<h2>Here's all the Patients:</h2>
-
-            		<img src="https://media.giphy.com/media/kJbFZ0Zj7mTza/giphy.gif" class="img responsive center meds" alt="cats">
-
-                	{{#each patients}}
-                			<form action="/?_method=DELETE" method="POST">
-                                    <p class="patient"> 1 </p>
-                                    <p class="patient"> {{this.firstname}} {{this.lastname}} </p>
-                                    <p class="patient"> {{this.currentdoctor}} </p>
-                                    <p class="patient"> Messed up face </p>
-                                    <p><input type="hidden" name="patient-info" value="1">
-                                    <button class="btn-primary" type="submit">Delete Patient? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-                			</form>
-
-                	{{/each}}
-            </div>
+                
         {{else}}
 
             <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no">
