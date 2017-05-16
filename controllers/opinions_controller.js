@@ -47,6 +47,21 @@ router.get("/admin", isLoggedIn, function(req, res) {
     }
 });
 
+router.put("/admin", function(req, res) {
+    console.log("Body from admin/id: " + req.body);
+    console.log("Body from admin/id: " + req.params.id);
+    db.Doctors.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function(results) {
+        res.render();
+    });
+});
+
+
 
 router.get("/docs", function(req, res) {
     db.Doctors.findAll({}).then(function(results) {
