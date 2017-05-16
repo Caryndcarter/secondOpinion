@@ -61,6 +61,19 @@ router.put("/admin/:id", function(req, res) {
     });
 });
 
+router.put("/admin/remove-admin/:steve", function(req,res) {
+    console.log(req.body.steve)
+    db.Patients.update({
+        isAdmin: req.body.revode
+    }, {
+        where:{
+            patient_id: req.params.steve
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    })
+})
+
 
 
 router.get("/docs", function(req, res) {

@@ -13,16 +13,37 @@
                               <h4 class="modal-title" id="myModalLabel">All Doctors</h4>
                           </div>
                           <div class="modal-body">
-                                {{#each doctors}}
-                                  {{#unless removed}}
-                                    <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">
-                                                <p class="doctor"> {{this.doc_id}}. {{this.first_name}} {{this.last_name}}, {{this.title}}</p>
-                                                <p class="doctor"> <b>Primary Specialty:</b> {{this.primary_specialty}} </p>
-                                                <p><input type="hidden" name="removed" value="true">
-                                                <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-                                        </form>
-                                    {{/unless}}
-                                {{/each}}
+                                <div class="doctors-table">
+                                    <table class="table table-condensed table-hover table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Id #</th>
+                                            <th>Name</th>
+                                            <th>Title</th>
+                                            <th>Main Specialty</th>
+                                            <th>Remove them</th>
+                                          </tr>
+                                        </thead>
+                                        {{#each doctors}}
+                                          {{#unless removed}}
+                                            <tdbody>
+                                              <tr>
+                                                <td>{{this.doc_id}}</td>
+                                                <td>{{this.first_name}} {{this.last_name}}</td>
+                                                <td>{{this.title}}</td>
+                                                <td>{{this.primary_specialty}}</td>
+                                                <td>
+                                                    <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">                                                     
+                                                        <input type="hidden" name="removed" value="true">
+                                                        <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                    </form>
+                                                </td>
+                                              </tr>
+                                            </tdbody>
+                                          {{/unless}}
+                                        {{/each}}                                        
+                                    </table>
+                                </div>                                
                           </div>
                           <div class="modal-footer">
                               <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -32,9 +53,13 @@
               </div>
 
 <! -------------------------------------------------------------------------------------------- >
+<br>
+<br>
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-patients-modal" data-toggle="modal" type="button" role="button">Show all patients</a>
 
 <!-------------------------------------------------------------------------------------------->
+<br>
+<br>
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
 
         <div aria-labelledby="myModalLabel" class="modal fade" id="all-admins-modal" role="dialog" tabindex="-1">
@@ -66,8 +91,8 @@
                                         <td>{{this.current_doctor}}</td>
                                         <td>{{this.email}}</td>
                                         <td> 
-                                            <form action="{{this.patient_id}}?_method=PUT" method="POST">                                                
-                                                <input type="hidden" name="removed" value="true">
+                                            <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">                                                
+                                                <input type="hidden" name="revode" value="false">
                                                 <button class="btn-primary" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                                             </form>
                                         </td>
@@ -88,6 +113,8 @@
       </div>
 
 <!-------------------------------------------------------------------------------------------->
+<br>
+<br>
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
 
     <div aria-labelledby="myModalLabel" class="modal fade" id="all-removed-modal" role="dialog" tabindex="-1">
