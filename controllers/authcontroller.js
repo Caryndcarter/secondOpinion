@@ -17,13 +17,13 @@ module.exports = function (passport) {
         db.Doctors.findAll({})
         .then(function(docResults) {
              //call the specific patient, grab the data
-            db.Patient.findOne({
+            db.Patients.findOne({
                 where: {
-                    id: req.user.id;
+                    patient_id: req.user.id
                 }
             })
             .then(function(patientResults) {
-                res.render("dashboard", { doctors: docResults, patients: patientResults });
+                res.render("dashboard", { doctors: docResults, patients: patientResults  });
             })
 
             //with the patient data             

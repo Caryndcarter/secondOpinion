@@ -49,10 +49,12 @@
         <hr>
 
         {{#each patients}}
-            {{#if this.match_doctor=='None'}}
-                You have no matches yet! 
+            {{this.firstname}}
+            {{this.match_doctor}}                        
+            {{#if this.match_doctor}}
+                <p>this.match_doctor works!</p>
             {{else}}
-                You have some matches!!
+                <p>this.match_doctor doesn't works</p>
             {{/if}}
         {{/each}}
 
