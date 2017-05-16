@@ -35,7 +35,7 @@
                                                 <td>
                                                     <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">                                                     
                                                         <input type="hidden" name="removed" value="true">
-                                                        <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                        <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                                     </form>
                                                 </td>
                                               </tr>
@@ -60,8 +60,9 @@
 <! -------------------------------------------------------------------------------------------- >
 <br>
 <br>
+    <!-- here's the btn to toggle the modal to show all the admins. -->
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
-
+        <!-- here's the modal in all it's glory -->
         <div aria-labelledby="myModalLabel" class="modal fade" id="all-admins-modal" role="dialog" tabindex="-1">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -72,6 +73,7 @@
                       <div class="modal-body">
                             <div class="all-admins-table">
                                 <div class="admins-table">
+                                    <!-- here's the table that holds all the info about all the admins and a little info about them cuz why not? Also has the option to revoke their admin power -->
                                     <table class="table table-condensed table-hover table-bordered">
                                         <thead>
                                           <tr>
@@ -82,8 +84,10 @@
                                             <th>Remove Button</th>
                                           </tr>
                                         </thead>
+                            <!-- taking each patient, then seeing if they're admin or not -->
                             {{#each isAdmin}}
-                                {{#if this.isAdmin}}       
+                                {{#if this.isAdmin}} 
+                                    <!-- then adding their info to the table -->      
                                     <tbody>
                                       <tr>
                                         <td>{{this.firstname}} {{this.lastname}}</td>
@@ -91,9 +95,10 @@
                                         <td>{{this.current_doctor}}</td>
                                         <td>{{this.email}}</td>
                                         <td> 
+                                            <!-- btn to revoke admin power -->
                                             <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">                                                
                                                 <input type="hidden" name="revode" value="false">
-                                                <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                                             </form>
                                         </td>
                                 
@@ -115,6 +120,7 @@
 <! -------------------------------------------------------------------------------------------->
 <br>
 <br>
+    <!-- btn to open a modal with all the removed people on it. -->
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
 
     <div aria-labelledby="myModalLabel" class="modal fade" id="all-removed-modal" role="dialog" tabindex="-1">
@@ -127,6 +133,7 @@
                       <div class="modal-body">
                             <div class="all-admins-table">
                                 <div class="admins-table">
+                                    <!-- here the table for all the removed people -->
                                     <table class="table table-condensed table-hover table-bordered">
                                         <thead>
                                           <tr>
@@ -135,6 +142,7 @@
                                           </tr>
                                         </thead>
                                         <tbody>
+                                            <!-- we grabbing each doctor and seeing if they're removed or not then adding them to the table -->
                                             {{#each doctors}}
                                                 {{#if this.removed}}
                                                       <tr>
@@ -143,7 +151,7 @@
                                                       </tr>                                            
                                                 {{/if}}
                                             {{/each}}
-
+                                            <!-- here we checking each patient to see who's been removed and adding those who have to the table as well. -->
                                             {{#each patients}}
                                                 {{#if this.removed}}
                                                     <tr>
