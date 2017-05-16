@@ -3,7 +3,16 @@
             <h1>This is the admin panel. Turn back away now!</h1>
 
 
+
             <div class="container">
+            <a class="btn btn-primary btn-lg btn-block" data-target="#all-doctors-modal" data-toggle="modal" type="button" role="button">Show all doctors</a>
+
+            <a class="btn btn-primary btn-lg btn-block" data-target="#all-patients-modal" data-toggle="modal" type="button" role="button">Show all patients</a>
+
+            <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
+
+            <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
+
                 <div class="col-md-6">
                 	<h2>Here's all the docs:</h2>
 
@@ -12,10 +21,8 @@
                     {{#each doctors}}
                     	<form action="/?_method=DELETE" method="POST">
                                     <p class="doctor"> 1 </p>
-                                    <p class="doctor"> Andy </p>
-                                    <p class="doctor"> Boss </p>
-                                    <p class="doctor"> Plastic Surgery </p>
-                                    <p class="doctor"> 3 </p>
+                                    <p class="doctor"> {{this.first_name}} {{this.last_name}} </p>
+                                    <p class="doctor"> {{this.primary_specialy}} </p>
                                     <p><input type="hidden" name="doctor-info" value="1">
                                     <button class="btn-primary" type="submit">Delete Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
                 			</form>
@@ -30,7 +37,7 @@
                 			<form action="/?_method=DELETE" method="POST">
                                     <p class="patient"> 1 </p>
                                     <p class="patient"> {{this.firstname}} {{this.lastname}} </p>
-                                    <p class="patient"> Changed </p>
+                                    <p class="patient"> {{this.currentdoctor}} </p>
                                     <p class="patient"> Messed up face </p>
                                     <p><input type="hidden" name="patient-info" value="1">
                                     <button class="btn-primary" type="submit">Delete Patient? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
