@@ -35,7 +35,7 @@
                                                 <td>
                                                     <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">                                                     
                                                         <input type="hidden" name="removed" value="true">
-                                                        <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                        <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                                                     </form>
                                                 </td>
                                               </tr>
@@ -57,7 +57,7 @@
 <br>
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-patients-modal" data-toggle="modal" type="button" role="button">Show all patients</a>
 
-<!-------------------------------------------------------------------------------------------->
+<! -------------------------------------------------------------------------------------------- >
 <br>
 <br>
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
@@ -93,7 +93,7 @@
                                         <td> 
                                             <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">                                                
                                                 <input type="hidden" name="revode" value="false">
-                                                <button class="btn-primary" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                                             </form>
                                         </td>
                                 
@@ -112,7 +112,7 @@
           </div>
       </div>
 
-<!-------------------------------------------------------------------------------------------->
+<! -------------------------------------------------------------------------------------------->
 <br>
 <br>
     <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
@@ -165,7 +165,7 @@
           </div>
       </div>
 
-<!-------------------------------------------------------------------------------------------->
+<! -------------------------------------------------------------------------------------------->
                 
         {{else}}
 
