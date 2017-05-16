@@ -2,9 +2,8 @@
         {{#if isAdmin}}
             <h1>This is the admin panel. Turn back away now!</h1>
 
-
-
-<div class="container">
+            
+            <div class="container">
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-doctors-modal" data-toggle="modal" type="button" role="button">Show all doctors</a>
               <div aria-labelledby="myModalLabel" class="modal fade" id="all-doctors-modal" role="dialog" tabindex="-1">
                   <div class="modal-dialog" role="document">
@@ -15,12 +14,14 @@
                           </div>
                           <div class="modal-body">
                                 {{#each doctors}}
-                                    <form action="?_method=PUT" method="POST">
+                                  {{#unless removed}}
+                                    <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">
                                                 <p class="doctor"> {{this.doc_id}}. {{this.first_name}} {{this.last_name}}, {{this.title}}</p>
                                                 <p class="doctor"> <b>Primary Specialty:</b> {{this.primary_specialty}} </p>
                                                 <p><input type="hidden" name="removed" value="true">
                                                 <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
                                         </form>
+                                    {{/unless}}
                                 {{/each}}
                           </div>
                           <div class="modal-footer">
