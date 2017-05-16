@@ -16,6 +16,10 @@ h2 {
 
 }
 
+.doctors-table {
+	background-color: #e6e6e6;
+}
+
 .navbar-right {
 	padding-top: 7px;
 }
@@ -57,7 +61,7 @@ h2 {
 }
 
 .all-doctors-page {
-	font-weight: 10px;
+	font-weight: 20px;
 }
 
 .col-md-4 {
