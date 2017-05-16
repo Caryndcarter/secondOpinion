@@ -11,24 +11,24 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
-router.post("/", function(req, res) {
+router.put("/dashboard/update-patient/:id", function(req, res) {
 	// console.log(req.body);
 
-    //THIS NEEDS TO BE REWRITTEN
-	db.Patients.create({
-		name: req.body.patient_name,
-		email: req.body.email,
+	db.Patients.update({
+
 		current_doctor: req.body.current_doctor,
 		diagnosis: req.body.diagnosis
-
-	}).then(function(dbPatients) {
+	}, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function(dbPatients) {
 		//send the results of the doctor match as a response object
 
 		res.json(dbPatients);
 
 	});
 });
-
 
 router.get("/admin", isLoggedIn, function(req, res) {
     //Updated Admin block, you can only use one res.render per block
@@ -45,11 +45,40 @@ router.get("/admin", isLoggedIn, function(req, res) {
             });
         });
     } else {
-        res.render("/");
+        res.render("404");
     }
 });
 
-router.put("/admin/:id", function(req, res) {
+router.put("/admin/add-admin/:id", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.id);
+    db.Patients.update({
+        isAdmin: req.body.isAdmin
+        }, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
+
+router.put("/admin/remove-patient/:id", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.id);
+    db.Patients.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
+router.put("/admin/remove-doc/:id", function(req, res) {
     console.log(req.body);
     console.log(req.body.id);
     db.Doctors.update({
@@ -63,13 +92,12 @@ router.put("/admin/:id", function(req, res) {
     });
 });
 
-router.put("/admin/remove-admin/:steve", function(req,res) {
-    console.log(req.body.steve)
+router.put("/admin/remove-admin/:id", function(req,res) {
     db.Patients.update({
-        isAdmin: req.body.revode
+        isAdmin: req.body.isAdmin
     }, {
         where:{
-            patient_id: req.params.steve
+            patient_id: req.params.id
         }
     }).then(function() {
         res.redirect("/admin");
