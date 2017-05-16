@@ -6,8 +6,14 @@
 
     <div class="col-md-6 steve">
         <p class="welcome-text">
-            Welcome to Second Opinion! An application to help you to get another opinion with what your doctor has told you!
+            Need a Second Opinion? Look no further! Here's an application to help you to get another opinion from a doctor!! Give us some info and we'll find some other doctors for you to go talk to! 
         </p>
+        <br>
+        <br>
+        {{#if user}}
+        	<a class="btn btn-primary btn-lg btn-block" href="/dashboard" role="button">Search For Doctor</a>
+
+        {{/if}}
     </div>
 
 </div>
