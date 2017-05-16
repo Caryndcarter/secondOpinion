@@ -31,6 +31,7 @@ app.use(function(req, res, next) {
     res.locals.user = req.user;
     next();
 });
+require("./config/passport.js")(passport, db.Patients);
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
@@ -47,8 +48,7 @@ app.set("view engine", "handlebars");
 
 //Importing routes
 var opinions = require("./controllers/opinions_controller.js");
-var authroute = require("./controllers/authcontroller.js");
-require("./config/passport.js")(passport, db.Patients);
+var authroute = require("./controllers/authcontroller.js")(passport);
 
 app.use("/", opinions);
 app.use("/", authroute);

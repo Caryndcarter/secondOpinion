@@ -4,6 +4,7 @@
         <hr>
         <form class="create-form add-patient" action="/" method="POST">
             <div class="form-group">
+
                 <label for="patient_name" class="col-md-4 control-label">Name:</label>
                 <div class="col-md-8">
                 <input type="text" name="patient_name" id="patient_name" placeholder="Full Name" required>
@@ -13,19 +14,21 @@
                 <div class="col-md-8">
                 <input type="text" name="email" id="email" placeholder="E-Mail" required>
                 </div>
-
-                <label for="current_doctor" class="col-md-4 control-label">Current Doctor:</label>
-                <div class="col-md-8">
-                <input type="text" name="current_doctor" id="current_doctor" placeholder="Doctor's Name">
-                </div>
                 
                 <label for="diagnosis"class="col-md-4 control-label">Diagnosis:</label>
                 <div class="col-md-8">
                 <input type="text" name="diagnosis" id="diagnosis" placeholder="Current Diagnosis">
                 </div>
 
-                <hr>
-
+                <label for="current_doctor" class="col-md-4 control-label">Current Doctor:</label>
+                <div class="col-md-8">
+                    <select data-placeholder="" name="doctors" class="doctors-select" id="doctor">
+                        {{#each doctors}}
+                            <option value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+        <!--
                 <h4>What type of specialist are you looking for?</h4>
                 <select data-placeholder="" name="speciality" class="speciality-select" id="speciality">
                     <option value="oncology">Oncology</option>
@@ -33,8 +36,9 @@
                     <option value="obstetrics">Obstetrics</option>
                     <option value="rheumatology">Rheumatology</option>
                 </select>
-                <br>
-                <button type="submit" class="btn btn-primary">Submit Information</button>
+        -->
+                <br><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
@@ -42,13 +46,20 @@
 <!--Results Panel-->  
     <div class="col-md-6 doc-results">
         <h2>Your Second Opinion</h2>
+        <hr>
         <!-- displays the doctor data. I pulled the dot notation from the schema file. LM-->
 
-            <span>Doctor Name: Bruce Banner, MD</span>
-            <span> Specialty: Kicking Ass, Taking Names</span>
 
-        <hr>
+        <!--
+            <p>Doctor Name: Bruce Banner, MD</p>
+            <p> Specialty: Kicking Ass, Taking Names</p>
+
+        -->
+        
     </div>
 
 <!-- end container -->    
 </div>
+
+<!-- may need to be moved to footer. We'll see. -->
+<script src="./public/assets/js/dashboard.js"></script>
