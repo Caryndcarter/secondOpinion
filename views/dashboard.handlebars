@@ -2,19 +2,9 @@
     <div class="col-md-6">
         <h2>Patient Request</h2>
         <hr>
-        <form class="create-form add-patient" action="/" method="POST">
+        <form class="create-form add-patient" action="/dashboard/update-patient/{{this.patient_id}}?_method=PUT" method="POST">
             <div class="form-group">
 
-                <label for="patient_name" class="col-md-4 control-label">Name:</label>
-                <div class="col-md-8">
-                <input type="text" name="patient_name" id="patient_name" placeholder="Full Name" required>
-                </div>
-
-                <label for="email" class="col-md-4 control-label">E-mail:</label>
-                <div class="col-md-8">
-                <input type="text" name="email" id="email" placeholder="E-Mail" required>
-                </div>
-                
                 <label for="diagnosis"class="col-md-4 control-label">Diagnosis:</label>
                 <div class="col-md-8">
                 <input type="text" name="diagnosis" id="diagnosis" placeholder="Current Diagnosis">
@@ -43,7 +33,7 @@
         </form>
     </div>
 
-<!--Results Panel-->  
+<!--Results Panel-->
     <div class="col-md-6 doc-results">
         <h2>Your Second Opinion</h2>
         <hr>
@@ -55,10 +45,10 @@
             <p> Specialty: Kicking Ass, Taking Names</p>
 
         -->
-        
+
     </div>
 
-<!-- end container -->    
+<!-- end container -->
 </div>
 
 <!-- may need to be moved to footer. We'll see. -->
