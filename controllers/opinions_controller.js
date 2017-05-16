@@ -54,10 +54,10 @@ router.put("/admin", function(req, res) {
         removed: req.body.removed
         }, {
         where: {
-            id: req.body.id
+            doc_id: req.body.id
         }
-    }).then(function(results) {
-        res.render();
+    }).then(function() {
+        res.redirect("/admin");
     });
 });
 
