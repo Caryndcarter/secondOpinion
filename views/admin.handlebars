@@ -15,12 +15,14 @@
                       </div>
                       <div class="modal-body">
                             {{#each doctors}}
-                                <form action="?_method=PUT" method="POST">
+                              {{#unless removed}}
+                                <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">
                                             <p class="doctor"> {{this.doc_id}}. {{this.first_name}} {{this.last_name}}, {{this.title}}</p>
                                             <p class="doctor"> <b>Primary Specialty:</b> {{this.primary_specialty}} </p>
-                                            <p><input type="hidden" name="removed" value="true">
+                                            <p><input type="hidden" name="removed" value="1">
                                             <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
                                     </form>
+                              {{/unless}}
                             {{/each}}
                       </div>
                       <div class="modal-footer">
