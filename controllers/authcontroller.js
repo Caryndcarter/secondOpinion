@@ -19,7 +19,11 @@ router.get("/logout", function(req, res) {
 });
 
 router.get("/dashboard", isLoggedIn, function(req, res) {
-    res.render("dashboard");
+
+    db.Doctors.findAll({}).then(function(results) {
+        res.render("dashboard", { doctors: results });
+    });
+
     // console.log("Username " + req.user.username);
     console.log(req.user);
 });
