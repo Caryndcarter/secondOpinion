@@ -2,7 +2,7 @@
         {{#if isAdmin}}
             <h1>This is the admin panel. Turn back away now!</h1>
 
-            
+
             <div class="container">
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-doctors-modal" data-toggle="modal" type="button" role="button">Show all doctors</a>
               <div aria-labelledby="myModalLabel" class="modal fade" id="all-doctors-modal" role="dialog" tabindex="-1">
@@ -33,7 +33,7 @@
                                                 <td>{{this.title}}</td>
                                                 <td>{{this.primary_specialty}}</td>
                                                 <td>
-                                                    <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">                                                     
+                                                    <form method="POST" action="/admin/remove-doc/{{this.doc_id}}?_method=PUT">
                                                         <input type="hidden" name="removed" value="true">
                                                         <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                                                     </form>
@@ -41,9 +41,9 @@
                                               </tr>
                                             </tdbody>
                                           {{/unless}}
-                                        {{/each}}                                        
+                                        {{/each}}
                                     </table>
-                                </div>                                
+                                </div>
                           </div>
                           <div class="modal-footer">
                               <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -56,7 +56,52 @@
 <br>
 <br>
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-patients-modal" data-toggle="modal" type="button" role="button">Show all patients</a>
-
+              <div aria-labelledby="myModalLabel" class="modal fade" id="all-patients-modal" role="dialog" tabindex="-1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">All Patients</h4>
+                          </div>
+                          <div class="modal-body">
+                                <div class="patients-table">
+                                    <table class="table table-condensed table-hover table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Id #</th>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>E-mail</th>
+                                            <th>Remove them</th>
+                                          </tr>
+                                        </thead>
+                                        {{#each patients}}
+                                          {{#unless removed}}
+                                            <tdbody>
+                                              <tr>
+                                                <td>{{this.patient_id}}</td>
+                                                <td>{{this.firstname}} {{this.lastname}}</td>
+                                                <td>{{this.username}}</td>
+                                                <td>{{this.email}}</td>
+                                                <td>
+                                                    <form method="POST" action="/admin/remove-patient/{{this.patient_id}}?_method=PUT">
+                                                        <input type="hidden" name="removed" value="true">
+                                                        <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                    </form>
+                                                </td>
+                                              </tr>
+                                            </tdbody>
+                                          {{/unless}}
+                                        {{/each}}
+                                    </table>
+                                </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
 <! -------------------------------------------------------------------------------------------- >
 <br>
 <br>
@@ -83,20 +128,20 @@
                                           </tr>
                                         </thead>
                             {{#each isAdmin}}
-                                {{#if this.isAdmin}}       
+                                {{#if this.isAdmin}}
                                     <tbody>
                                       <tr>
                                         <td>{{this.firstname}} {{this.lastname}}</td>
                                         <td>{{this.username}}</td>
                                         <td>{{this.current_doctor}}</td>
                                         <td>{{this.email}}</td>
-                                        <td> 
-                                            <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">                                                
-                                                <input type="hidden" name="revode" value="false">
+                                        <td>
+                                            <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">
+                                                <input type="hidden" name="revoke" value="false">
                                                 <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                                             </form>
                                         </td>
-                                
+
                                       </tr>
                                     </tbody>
                                 {{/if}}
@@ -140,7 +185,7 @@
                                                       <tr>
                                                         <td>{{this.first_name}} {{this.last_name}}</td>
                                                         <td>Doctor</td>
-                                                      </tr>                                            
+                                                      </tr>
                                                 {{/if}}
                                             {{/each}}
 
@@ -166,7 +211,7 @@
       </div>
 
 <! -------------------------------------------------------------------------------------------->
-                
+
         {{else}}
 
             <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no">

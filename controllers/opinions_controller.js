@@ -47,7 +47,21 @@ router.get("/admin", isLoggedIn, function(req, res) {
     }
 });
 
-router.put("/admin/:id", function(req, res) {
+router.put("/admin/remove-patient/:id", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.id);
+    db.Patients.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
+router.put("/admin/remove-doc/:id", function(req, res) {
     console.log(req.body);
     console.log(req.body.id);
     db.Doctors.update({
@@ -61,13 +75,12 @@ router.put("/admin/:id", function(req, res) {
     });
 });
 
-router.put("/admin/remove-admin/:steve", function(req,res) {
-    console.log(req.body.steve)
+router.put("/admin/remove-admin/:id", function(req,res) {
     db.Patients.update({
-        isAdmin: req.body.revode
+        isAdmin: req.body.isAdmin
     }, {
         where:{
-            patient_id: req.params.steve
+            patient_id: req.params.id
         }
     }).then(function() {
         res.redirect("/admin");
