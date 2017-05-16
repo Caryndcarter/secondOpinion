@@ -2,61 +2,171 @@
         {{#if isAdmin}}
             <h1>This is the admin panel. Turn back away now!</h1>
 
-
-
+            
             <div class="container">
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-doctors-modal" data-toggle="modal" type="button" role="button">Show all doctors</a>
-          <div aria-labelledby="myModalLabel" class="modal fade" id="all-doctors-modal" role="dialog" tabindex="-1">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">All Doctors</h4>
-                      </div>
-                      <div class="modal-body">
-                            {{#each doctors}}
-                                <form action="?_method=PUT" method="POST">
-                                            <p class="doctor"> {{this.doc_id}}. {{this.first_name}} {{this.last_name}}, {{this.title}}</p>
-                                            <p class="doctor"> <b>Primary Specialty:</b> {{this.primary_specialty}} </p>
-                                            <p><input type="hidden" name="removed" value="true">
-                                            <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-                                    </form>
-                            {{/each}}
-                      </div>
-                      <div class="modal-footer">
-                          <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              <div aria-labelledby="myModalLabel" class="modal fade" id="all-doctors-modal" role="dialog" tabindex="-1">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">All Doctors</h4>
+                          </div>
+                          <div class="modal-body">
+                                <div class="doctors-table">
+                                    <table class="table table-condensed table-hover table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Id #</th>
+                                            <th>Name</th>
+                                            <th>Title</th>
+                                            <th>Main Specialty</th>
+                                            <th>Remove them</th>
+                                          </tr>
+                                        </thead>
+                                        {{#each doctors}}
+                                          {{#unless removed}}
+                                            <tdbody>
+                                              <tr>
+                                                <td>{{this.doc_id}}</td>
+                                                <td>{{this.first_name}} {{this.last_name}}</td>
+                                                <td>{{this.title}}</td>
+                                                <td>{{this.primary_specialty}}</td>
+                                                <td>
+                                                    <form method="POST" action="/admin/{{this.doc_id}}?_method=PUT">                                                     
+                                                        <input type="hidden" name="removed" value="true">
+                                                        <button class="btn-primary" type="submit">Remove Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                                    </form>
+                                                </td>
+                                              </tr>
+                                            </tdbody>
+                                          {{/unless}}
+                                        {{/each}}                                        
+                                    </table>
+                                </div>                                
+                          </div>
+                          <div class="modal-footer">
+                              <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                          </div>
                       </div>
                   </div>
               </div>
-          </div>
 
 <! -------------------------------------------------------------------------------------------- >
+<br>
+<br>
             <a class="btn btn-primary btn-lg btn-block" data-target="#all-patients-modal" data-toggle="modal" type="button" role="button">Show all patients</a>
 
 <!-------------------------------------------------------------------------------------------->
-            <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
+<br>
+<br>
+    <a class="btn btn-primary btn-lg btn-block" data-target="#all-admins-modal" data-toggle="modal" type="button" role="button">Show all admins</a>
+
+        <div aria-labelledby="myModalLabel" class="modal fade" id="all-admins-modal" role="dialog" tabindex="-1">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">All Admins</h4>
+                  </div>
+                      <div class="modal-body">
+                            <div class="all-admins-table">
+                                <div class="admins-table">
+                                    <table class="table table-condensed table-hover table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Main Doctor</th>
+                                            <th>Email</th>
+                                            <th>Remove Button</th>
+                                          </tr>
+                                        </thead>
+                            {{#each isAdmin}}
+                                {{#if this.isAdmin}}       
+                                    <tbody>
+                                      <tr>
+                                        <td>{{this.firstname}} {{this.lastname}}</td>
+                                        <td>{{this.username}}</td>
+                                        <td>{{this.current_doctor}}</td>
+                                        <td>{{this.email}}</td>
+                                        <td> 
+                                            <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">                                                
+                                                <input type="hidden" name="revode" value="false">
+                                                <button class="btn-primary" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                            </form>
+                                        </td>
+                                
+                                      </tr>
+                                    </tbody>
+                                {{/if}}
+                            {{/each}}
+                                </table>
+                            </div>
+                        </div>
+                      </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 <!-------------------------------------------------------------------------------------------->
-            <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
+<br>
+<br>
+    <a class="btn btn-primary btn-lg btn-block" data-target="#all-removed-modal" data-toggle="modal" type="button" role="button">Show all removed</a>
+
+    <div aria-labelledby="myModalLabel" class="modal fade" id="all-removed-modal" role="dialog" tabindex="-1">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">All Removed Doctors & Patients</h4>
+                  </div>
+                      <div class="modal-body">
+                            <div class="all-admins-table">
+                                <div class="admins-table">
+                                    <table class="table table-condensed table-hover table-bordered">
+                                        <thead>
+                                          <tr>
+                                            <th>Name</th>
+                                            <th>What they are</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each doctors}}
+                                                {{#if this.removed}}
+                                                      <tr>
+                                                        <td>{{this.first_name}} {{this.last_name}}</td>
+                                                        <td>Doctor</td>
+                                                      </tr>                                            
+                                                {{/if}}
+                                            {{/each}}
+
+                                            {{#each patients}}
+                                                {{#if this.removed}}
+                                                    <tr>
+                                                        <td>{{this.firstname}} {{this.lastname}}</td>
+                                                        <td>Patient</td>
+                                                      </tr>
+                                                {{/if}}
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+
+                            </div>
+                        </div>
+                      </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 <!-------------------------------------------------------------------------------------------->
-                <div class="col-md-6">
-                	<h2>Here's all the Patients:</h2>
-
-            		<img src="https://media.giphy.com/media/kJbFZ0Zj7mTza/giphy.gif" class="img responsive center meds" alt="cats">
-
-                	{{#each patients}}
-                			<form action="/?_method=DELETE" method="POST">
-                                    <p class="patient"> 1 </p>
-                                    <p class="patient"> {{this.firstname}} {{this.lastname}} </p>
-                                    <p class="patient"> {{this.currentdoctor}} </p>
-                                    <p class="patient"> Messed up face </p>
-                                    <p><input type="hidden" name="patient-info" value="1">
-                                    <button class="btn-primary" type="submit">Delete Patient? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-                			</form>
-
-                	{{/each}}
-            </div>
+                
         {{else}}
 
             <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no">

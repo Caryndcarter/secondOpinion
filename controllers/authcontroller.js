@@ -31,7 +31,7 @@ module.exports = function (passport) {
         });
 
         // console.log("Username " + req.user.username);
-        console.log(req.user);
+        // console.log(req.user);
     });
 
     router.get("/logout", function(req, res) {

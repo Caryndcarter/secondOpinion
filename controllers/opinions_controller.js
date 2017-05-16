@@ -36,7 +36,7 @@ router.get("/admin", isLoggedIn, function(req, res) {
     if (req.user.isAdmin) {
         db.Doctors.findAll({}).then(function(doctorData) {
             db.Patients.findAll({}).then(function(patientsData) {
-                console.log(patientsData);
+                // console.log(patientsData);
                 res.render("admin", {
                     isAdmin: patientsData,
                     doctors: doctorData,
@@ -49,19 +49,32 @@ router.get("/admin", isLoggedIn, function(req, res) {
     }
 });
 
-router.put("/admin", function(req, res) {
-    console.log("Body from admin/id: " + req.body);
-    console.log("Body from admin/id: " + req.params.id);
+router.put("/admin/:id", function(req, res) {
+    console.log(req.body);
+    console.log(req.body.id);
     db.Doctors.update({
         removed: req.body.removed
         }, {
         where: {
-            doc_id: req.body.id
+            doc_id: req.params.id
         }
     }).then(function() {
         res.redirect("/admin");
     });
 });
+
+router.put("/admin/remove-admin/:steve", function(req,res) {
+    console.log(req.body.steve)
+    db.Patients.update({
+        isAdmin: req.body.revode
+    }, {
+        where:{
+            patient_id: req.params.steve
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    })
+})
 
 
 
