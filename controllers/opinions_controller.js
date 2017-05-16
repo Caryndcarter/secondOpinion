@@ -10,6 +10,8 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
 	// console.log(req.body);
+
+    //THIS NEEDS TO BE REWRITTEN
 	db.Patients.create({
 		name: req.body.patient_name,
 		email: req.body.email,

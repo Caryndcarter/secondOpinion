@@ -2,6 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
+
 module.exports = function (passport) {
     router.get("/signup", function(req, res) {
         res.render("/index");
@@ -11,11 +12,22 @@ module.exports = function (passport) {
         res.render("dashboard");
     });
 
-
     router.get("/dashboard", isLoggedIn, function(req, res) {
 
-        db.Doctors.findAll({}).then(function(results) {
-            res.render("dashboard", { doctors: results });
+        db.Doctors.findAll({})
+        .then(function(docResults) {
+             //call the specific patient, grab the data
+            db.Patient.findOne({
+                where: {
+                    id: req.user.id;
+                }
+            })
+            .then(function(patientResults) {
+                res.render("dashboard", { doctors: docResults, patients: patientResults });
+            })
+
+            //with the patient data             
+            
         });
 
         // console.log("Username " + req.user.username);

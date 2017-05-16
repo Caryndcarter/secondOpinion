@@ -47,12 +47,18 @@
     <div class="col-md-6 doc-results">
         <h2>Your Second Opinion</h2>
         <hr>
-        <!-- displays the doctor data. I pulled the dot notation from the schema file. LM-->
 
+        {{#each patients}}
+            {{#if this.match_doctor=='None'}}
+                You have no matches yet! 
+            {{else}}
+                You have some matches!!
+            {{/if}}
+        {{/each}}
 
         <!--
             <p>Doctor Name: Bruce Banner, MD</p>
-            <p> Specialty: Kicking Ass, Taking Names</p>
+            <p>Specialty: Kicking Ass, Taking Names</p>
 
         -->
         
@@ -60,6 +66,3 @@
 
 <!-- end container -->    
 </div>
-
-<!-- may need to be moved to footer. We'll see. -->
-<script src="./public/assets/js/dashboard.js"></script>

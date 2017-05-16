@@ -107,3 +107,13 @@ h2 {
 .login-row {
     padding: 10px;
 }
+
+/* DASHBOARD-SPECIFIC  */
+.add-patient div {
+	padding: 5px;
+}
+
+.add-patient .button {
+	padding: 10px;
+	vertical-align: center;
+}
