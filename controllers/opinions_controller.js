@@ -1,8 +1,11 @@
 //Dependencies
 var express = require("express");
 var router = express.Router();
+var Client = require("node-rest-client").Client;
 
 var db = require("../models");
+
+var client = new Client();
 
 router.get("/", function(req, res) {
     res.render("index");
@@ -46,6 +49,22 @@ router.get("/api/docs", function(req, res) {
     });
 })
 
+//receives the UID and calls getBestDoc function to do API call and get profile of doctor and send the response back
+router.get("/bestdoctor/:uid", function(req, res) {
+    var uid = req.params.uid;
+    getBestDoc(uid, function(data) {
+        res.json(data)
+    })
+});
+
+//API call
+function getBestDoc(uid, cb) {
+    client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, res) {
+        cb(data);
+    })
+}
+
+ 
 
 	//pull all the doctor data from MySQL
     	//Feed the relevant information into the doctor section of the  handlebars template
