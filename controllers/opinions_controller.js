@@ -32,11 +32,18 @@ router.get("/admin", isLoggedIn, function(req, res) {
     //Updated Admin block, you can only use one res.render per block
     //Have to do the second query in a callback from the initial callback
     if (req.user.isAdmin) {
-       db.Patients.findAll({}).then(function(dbPatients){
-            res.render("admin", { isAdmin: dbPatients});
+        db.Doctors.findAll({}).then(function(doctorData) {
+            db.Patients.findAll({}).then(function(patientsData) {
+                console.log(patientsData);
+                res.render("admin", {
+                    isAdmin: patientsData,
+                    doctors: doctorData,
+                    patients: patientsData
+                });
+            });
         });
     } else {
-        res.render("admin", { isAdmin: false});
+        res.render("/");
     }
 });
 
@@ -62,7 +69,7 @@ function getBestDoc(uid, cb) {
     })
 }
 
- 
+
 
 	//pull all the doctor data from MySQL
     	//Feed the relevant information into the doctor section of the  handlebars template
@@ -73,7 +80,7 @@ function getBestDoc(uid, cb) {
     	// res.json(dbDoctors);
     //keeping below for reference
     // res.render("admin");
-   
+
    function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
