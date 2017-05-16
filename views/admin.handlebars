@@ -1,46 +1,53 @@
-{{#if isAdmin}}
-    <h1>This is the admin panel. Turn back away now!</h1>
+{{#if user}}
+        {{#if isAdmin}}
+            <h1>This is the admin panel. Turn back away now!</h1>
 
 
-    <div class="container">
-        <div class="col-md-6">
-        	<h2>Here's all the docs:</h2>
+            <div class="container">
+                <div class="col-md-6">
+                	<h2>Here's all the docs:</h2>
 
-        	
+                	
 
-            <!-- each doctors -->
-            	<form action="/?_method=DELETE" method="POST">
-                            <p class="doctor"> 1 </p>
-                            <p class="doctor"> Andy </p>
-                            <p class="doctor"> Boss </p>
-                            <p class="doctor"> Plastic Surgery </p>
-                            <p class="doctor"> 3 </p>
-                            <p><input type="hidden" name="doctor-info" value="1">
-                            <button class="btn-primary" type="submit">Delete Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-        			</form>
-            <!-- each -->
-        </div>
-        <div class="col-md-6">
-        	<h2>Here's all the Patients:</h2>
+                    {{#each doctors}}
+                    	<form action="/?_method=DELETE" method="POST">
+                                    <p class="doctor"> 1 </p>
+                                    <p class="doctor"> Andy </p>
+                                    <p class="doctor"> Boss </p>
+                                    <p class="doctor"> Plastic Surgery </p>
+                                    <p class="doctor"> 3 </p>
+                                    <p><input type="hidden" name="doctor-info" value="1">
+                                    <button class="btn-primary" type="submit">Delete Doc? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
+                			</form>
+                    {{/each}}
+                </div>
+                <div class="col-md-6">
+                	<h2>Here's all the Patients:</h2>
 
-    		<img src="https://media.giphy.com/media/kJbFZ0Zj7mTza/giphy.gif" class="img responsive center meds" alt="cats">
+            		<img src="https://media.giphy.com/media/kJbFZ0Zj7mTza/giphy.gif" class="img responsive center meds" alt="cats">
 
-        	<!-- each patients -->
-        			<form action="/?_method=DELETE" method="POST">
-                            <p class="patient"> 1 </p>
-                            <p class="patient"> Paul </p>
-                            <p class="patient"> Changed </p>
-                            <p class="patient"> Messed up face </p>
-                            <p><input type="hidden" name="patient-info" value="1">
-                            <button class="btn-primary" type="submit">Delete Patient? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
-        			</form>
+                	{{#each patients}}
+                			<form action="/?_method=DELETE" method="POST">
+                                    <p class="patient"> 1 </p>
+                                    <p class="patient"> {{this.firstname}} {{this.lastname}} </p>
+                                    <p class="patient"> Changed </p>
+                                    <p class="patient"> Messed up face </p>
+                                    <p><input type="hidden" name="patient-info" value="1">
+                                    <button class="btn-primary" type="submit">Delete Patient? <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></p>
+                			</form>
 
-        	<!-- each -->
-    </div>
-{{else}}
-    
-    <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no">
+                	{{/each}}
+            </div>
+        {{else}}
+            
+            <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no">
 
-    <!-- <img src="https://cdn.meme.am/cache/instances/folder895/65974895.jpg" class="img-responsive center morpheus" alt="no"> -->
+            <!-- <img src="https://cdn.meme.am/cache/instances/folder895/65974895.jpg" class="img-responsive center morpheus" alt="no"> -->
+        {{/if}}
+
+    {{else}}
+        
+        <!-- <img src="https://media.giphy.com/media/njYrp176NQsHS/giphy.gif" class="img-responsive center gandalf" alt="no"> -->
+
+        <img src="https://cdn.meme.am/cache/instances/folder895/65974895.jpg" class="img-responsive center morpheus" alt="no">
 {{/if}}
-

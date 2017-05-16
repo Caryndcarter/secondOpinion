@@ -25,22 +25,20 @@ router.post("/", function(req, res) {
 });
 
 
-router.get("/admin", function(req, res) {
+router.get("/admin", isLoggedIn, function(req, res) {
     //Updated Admin block, you can only use one res.render per block
     //Have to do the second query in a callback from the initial callback
-    db.Doctors.findAll({
-
-    }).then(function(dbDoctors) {
-        db.Patients.findAll({
-
-        }).then(function(dbPatients){
-            res.render("admin");
+    if (req.user.isAdmin) {
+       db.Patients.findAll({}).then(function(dbPatients){
+            res.render("admin", { isAdmin: dbPatients});
         });
-    });
+    } else {
+        res.render("admin", { isAdmin: false});
+    }
 });
 
 
-router.get("/api/docs", function(req, res) {
+router.get("/docs", function(req, res) {
     db.Doctors.findAll({}).then(function(results) {
         res.render("docs", { doctors: results });
     });
@@ -57,6 +55,11 @@ router.get("/api/docs", function(req, res) {
     //keeping below for reference
     // res.render("admin");
    
+   function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect("/")
+}
 
 
 
