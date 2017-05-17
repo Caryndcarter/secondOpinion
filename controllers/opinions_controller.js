@@ -58,7 +58,7 @@ router.get("/bestdoctor/:uid", function(req, res) {
 //API call
 function getBestDoc(uid, cb) {
     client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, res) {
-        cb(data);
+        cb(data.data.profile);
     })
 }
 
