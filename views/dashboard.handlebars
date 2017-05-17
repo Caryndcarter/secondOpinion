@@ -2,19 +2,9 @@
     <div class="col-md-6">
         <h2>Patient Request</h2>
         <hr>
-        <form class="create-form add-patient" action="/" method="POST">
+        <form class="create-form add-patient" action="/dashboard/update-patient/{{this.patient_id}}?_method=PUT" method="POST">
             <div class="form-group">
 
-                <label for="patient_name" class="col-md-4 control-label">Name:</label>
-                <div class="col-md-8">
-                <input type="text" name="patient_name" id="patient_name" placeholder="Full Name" required>
-                </div>
-
-                <label for="email" class="col-md-4 control-label">E-mail:</label>
-                <div class="col-md-8">
-                <input type="text" name="email" id="email" placeholder="E-Mail" required>
-                </div>
-                
                 <label for="diagnosis"class="col-md-4 control-label">Diagnosis:</label>
                 <div class="col-md-8">
                 <input type="text" name="diagnosis" id="diagnosis" placeholder="Current Diagnosis">
@@ -22,9 +12,12 @@
 
                 <label for="current_doctor" class="col-md-4 control-label">Current Doctor:</label>
                 <div class="col-md-8">
-                    <select data-placeholder="" name="doctors" class="doctors-select" id="doctor">
+                    <select data-placeholder="" name="current_doctor" class="doctors-select" id="doctor">
                         {{#each doctors}}
-                            <option value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
+                            {{#unless removed}}
+                                <option value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
+                                }
+                            {{/unless}}
                         {{/each}}
                     </select>
                 </div>
@@ -38,28 +31,39 @@
                 </select>
         -->
                 <br><br>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary patient-button">Submit</button>
             </div>
         </form>
     </div>
 
-<!--Results Panel-->  
+<!--Results Panel-->
     <div class="col-md-6 doc-results">
         <h2>Your Second Opinion</h2>
         <hr>
-        <!-- displays the doctor data. I pulled the dot notation from the schema file. LM-->
 
+        {{#each patients}}
+            {{#if this.match_doctor}}
+                <div class="row doctor-result">
+                    <div class="col-md-3"><img src="../public/assets/catscan.jpg"></div>
+                    <div class="col-md-9">
+                        <h4>Muffy Von Fluff, MD</h4>
+                        <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>
+                        <p>Paws of Mercy Hospital: 234 Medical Rd. Chicago, IL</p>
+                        <p>Tel: (555)867-5309</p>
+                    </div>
+                </div>
+            {{else}}
+                To get started, please fill out the patient request form.
+            {{/if}}
+        {{/each}}
 
         <!--
             <p>Doctor Name: Bruce Banner, MD</p>
-            <p> Specialty: Kicking Ass, Taking Names</p>
+            <p>Specialty: Kicking Ass, Taking Names</p>
 
         -->
-        
+
     </div>
 
-<!-- end container -->    
+<!-- end container -->
 </div>
-
-<!-- may need to be moved to footer. We'll see. -->
-<script src="./public/assets/js/dashboard.js"></script>

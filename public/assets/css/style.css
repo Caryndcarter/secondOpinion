@@ -1,6 +1,6 @@
 body {
-		background-color: #f2f2f2;
-		padding-bottom: 20px;
+	background-color: #f2f2f2;
+	padding-bottom: 20px;
 }
 
 h1 {
@@ -16,12 +16,16 @@ h2 {
 
 }
 
+.navigation {
+	background-color: #fff;
+}
+
 .doctors-table {
 	background-color: #e6e6e6;
 }
 
 .navbar-right {
-	padding-top: 7px;
+	/*padding-top: 5px;*/
 }
 
 .steve {
@@ -47,6 +51,7 @@ h2 {
 
 .footer-hs {
     text-align: center;
+    border-top: 2px solid grey;
 }
 
 .header-hs {
@@ -113,3 +118,14 @@ h2 {
 .login-row {
     padding: 10px;
 }
+
+/* DASHBOARD-SPECIFIC  */
+.add-patient div {
+	padding: 5px;
+}
+
+.patient-button {
+	padding: 10px;
+	margin: 10px;
+}
+

@@ -24,14 +24,15 @@ INSERT INTO doctors (
 (3, "Dr.", "Beverly", "Crusher", "general medicine", "cellular genetics",3,4,5,6,7,8,9,10,11,0,0);
 
 INSERT INTO patients (
-    name,
+    username,
+    firstname,
+    lastname,
     email,
-    current_doctor,
-    match_doctor,
-    diagnosis,
+    password,
     createdAt,
     updatedAt
 ) VALUES
-("Jeff", "jeff@gmail.com", "Dr. Seymour Hopkins", "Dr. Strange Duck","Lung Cancer", 0, 0),
-("Luke", "luke@gmail.com", "Dr. Strange", "Dr. Love", "Pigmentation Discoloration", 0, 0),
-("Anakin", "anakin@gmail.com", "Lord Sidious", "Dr. Jar Jar", "High Midichlorian", 0, 0);
+("starlord", "Peter", "Quill", "pquill@gotg.com", "gotg", 0, 0),
+("hulk", "Bruce", "Banner", "bbanner@avengers.com", "gotg", 0, 0),
+("ironman", "Tony", "Stark", "tstark@avengers.com", "ironman", 0, 0),
+("Drax", "Arthur", "Douglas", "adouglas@gotg.com", "thedestroyer", 0, 0);

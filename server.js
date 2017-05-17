@@ -8,7 +8,7 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 2012;
+var PORT = process.env.PORT || 3308;
 
 //Serve static content from public directory
 app.use(express.static(process.cwd() + "/public"));
@@ -35,12 +35,11 @@ require("./config/passport.js")(passport, db.Patients);
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
-var helpers = require("./views/helpers");
+
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
-    partialsDir: ["views/partials/"],
-    helpers: helpers
+    partialsDir: ["views/partials/"]
 });
 
 app.engine("handlebars", hbs.engine);
