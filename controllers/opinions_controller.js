@@ -48,8 +48,8 @@ router.get("/admin", isLoggedIn, function(req, res) {
 });
 
 router.put("/admin/add-admin/:id", function(req, res) {
-    console.log(req.body);
-    console.log(req.body.id);
+    // console.log(req.body);
+    // console.log(req.body.id);
     db.Patients.update({
         isAdmin: req.body.isAdmin
         }, {
@@ -63,8 +63,8 @@ router.put("/admin/add-admin/:id", function(req, res) {
 
 
 router.put("/admin/remove-patient/:id", function(req, res) {
-    console.log(req.body);
-    console.log(req.body.id);
+    // console.log(req.body);
+    // console.log(req.body.id);
     db.Patients.update({
         removed: req.body.removed
         }, {
@@ -77,8 +77,8 @@ router.put("/admin/remove-patient/:id", function(req, res) {
 });
 
 router.put("/admin/remove-doc/:id", function(req, res) {
-    console.log(req.body);
-    console.log(req.body.id);
+    // console.log(req.body);
+    // console.log(req.body.id);
     db.Doctors.update({
         removed: req.body.removed
         }, {
@@ -142,7 +142,5 @@ function getBestDoc(uid, cb) {
         return next();
     res.redirect("/")
 }
-
-
 
 module.exports = router;

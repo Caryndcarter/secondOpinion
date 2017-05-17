@@ -13,10 +13,13 @@ module.exports = function (passport) {
 
 
     router.get("/dashboard", isLoggedIn, function(req, res) {
-
-        db.Doctors.findAll({}).then(function(results) {
-            res.render("dashboard", { doctors: results });
-        });
+        if (req.user.removed === true) {
+            res.render("404");
+        } else {
+            db.Doctors.findAll({}).then(function(results) {
+                res.render("dashboard", { doctors: results });
+            });
+        }
 
         // console.log("Username " + req.user.username);
         // console.log(req.user);
