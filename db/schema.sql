@@ -39,6 +39,5 @@ CREATE TABLE patients(
     isAdmin BOOLEAN DEFAULT 0,
     removed BOOLEAN DEFAULT 0,
     last_login date(),
-    removed BOOLEAN DEFAULT 0,
     primary key (patient_id)
 )
