@@ -1,8 +1,8 @@
 <header class="header-hs">
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
+  <div class="container-fluid navigation">
+    <div class="navbar-header navigation">
    		<a class="navbar-brand" href="/">
         <img class="logo" alt="Brand" src="assets/betterLogonewback.jpg"></a>
     </div>
@@ -12,6 +12,7 @@
       <p class="user-text">Welcome, {{user.firstname}} {{user.lastname}}</p>
       <p><a href="/logout">Log Out</a></p>
     {{else}}
+    <!-- login button and modal -->
       <button class="btn btn-warning btn-md" data-target="#login-modal" data-toggle="modal" type="button">Login <span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
           <div aria-labelledby="myModalLabel" class="modal fade" id="login-modal" role="dialog" tabindex="-1">
               <div class="modal-dialog" role="document">
@@ -37,6 +38,7 @@
                   </div>
               </div>
           </div>
+      <!-- Registration button and modal -->
       <button class="btn btn-warning btn-md" data-target="#register-modal" data-toggle="modal" type="button">Register <span class="glyphicon glyphicon-home" aria-hidden="true"></span></button>
          <div aria-labelledby="myModalLabel" class="modal fade" id="register-modal" role="dialog" tabindex="-1">
             <div class="modal-dialog" role="document">
