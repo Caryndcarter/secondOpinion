@@ -4,14 +4,9 @@ var router = express.Router();
 var db = require("../models");
 
 module.exports = function (passport) {
-    router.get("/signup", function(req, res) {
-        res.render("/index");
-    });
-
-    router.get("/signin", function(req, res) {
-        res.render("dashboard");
-    });
-
+    //Router to render the dashboard with doctors and patients datasets
+    //Checks to see if the user is logged in or not.
+    //Checks to see if the user is "removed" or not. If they are render's the 404 page
     router.get("/dashboard", isLoggedIn, function(req, res) {
         if (req.user.removed === true) {
             res.render("404");
@@ -25,23 +20,24 @@ module.exports = function (passport) {
                 });
             });
         }
-
-        // console.log("Username " + req.user.username);
-        // console.log(req.user);
     });
 
+    //Router to remove the user session once they click on the logout button
     router.get("/logout", function(req, res) {
         req.session.destroy(function(err) {
             res.redirect("/");
         });
     });
 
+    //Router to create an account and runs through to check in the database to see
+    //if the account is registered or hasn't been registered yet
     router.post("/signup", passport.authenticate("local-signup", {
         successRedirect: "/dashboard",
         failureRedirect: "/"
     }
     ));
 
+    //Router to check if the user logging in has a valid account with the correct credential in the database
     router.post("/signin", passport.authenticate("local-signin", {
         successRedirect: "/dashboard",
         failureRedirect: "/"
@@ -50,6 +46,7 @@ module.exports = function (passport) {
     return router;
 }
 
+//function to chek if the user is logged in or not
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();

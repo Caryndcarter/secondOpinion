@@ -7,10 +7,12 @@ var db = require("../models");
 
 var client = new Client();
 
+//Router to render the index page
 router.get("/", function(req, res) {
     res.render("index");
 });
 
+//Router to update the current doctor and diagnosis for the logged in patient
 router.put("/dashboard/update-patient/:id", function(req, res) {
 	// console.log(req.body);
 
@@ -30,6 +32,8 @@ router.put("/dashboard/update-patient/:id", function(req, res) {
 	});
 });
 
+//Router to get the admin page. Checks if you are an admin before rendering. If you aren't render the 404 page. 
+//If admin, have sequelize grabs all the doctor and patient data and renders the admin page with the following datasets
 router.get("/admin", isLoggedIn, function(req, res) {
     //Updated Admin block, you can only use one res.render per block
     //Have to do the second query in a callback from the initial callback
@@ -49,6 +53,7 @@ router.get("/admin", isLoggedIn, function(req, res) {
     }
 });
 
+//Router to update to add an admin based on the current Patients table
 router.put("/admin/add-admin/:id", function(req, res) {
     // console.log(req.body);
     // console.log(req.body.id);
@@ -63,7 +68,7 @@ router.put("/admin/add-admin/:id", function(req, res) {
     });
 });
 
-
+//Router to "delete" a patient from the current Patient table
 router.put("/admin/remove-patient/:id", function(req, res) {
     // console.log(req.body);
     // console.log(req.body.id);
@@ -78,6 +83,7 @@ router.put("/admin/remove-patient/:id", function(req, res) {
     });
 });
 
+//Router to "delete" a doctor from the current Doctors table
 router.put("/admin/remove-doc/:id", function(req, res) {
     // console.log(req.body);
     // console.log(req.body.id);
@@ -92,6 +98,7 @@ router.put("/admin/remove-doc/:id", function(req, res) {
     });
 });
 
+//Router to remove an admin based on the current Patients table
 router.put("/admin/remove-admin/:id", function(req,res) {
     db.Patients.update({
         isAdmin: req.body.isAdmin
@@ -104,8 +111,7 @@ router.put("/admin/remove-admin/:id", function(req,res) {
     })
 })
 
-
-
+//Router to render all of the available doctrocs on the docs page
 router.get("/docs", function(req, res) {
     db.Doctors.findAll({}).then(function(results) {
         res.render("docs", { doctors: results });
@@ -127,19 +133,18 @@ function getBestDoc(uid, cb) {
     })
 }
 
+//pull all the doctor data from MySQL
+	//Feed the relevant information into the doctor section of the  handlebars template
+	//for now, displaying a dummy page.
+	// res.render('admin', {doctors: results});
+//Pull all the patient data from MySQL
+	//Feed the relevant information into the patient section of the handlebars template
+	// res.json(dbDoctors);
+//keeping below for reference
+// res.render("admin");
 
-
-	//pull all the doctor data from MySQL
-    	//Feed the relevant information into the doctor section of the  handlebars template
-    	//for now, displaying a dummy page.
-    	// res.render('admin', {doctors: results});
-    //Pull all the patient data from MySQL
-    	//Feed the relevant information into the patient section of the handlebars template
-    	// res.json(dbDoctors);
-    //keeping below for reference
-    // res.render("admin");
-
-   function isLoggedIn(req, res, next) {
+//Checks to see if a user is logged in
+function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect("/")
