@@ -13,22 +13,18 @@ module.exports = function (passport) {
     });
 
     router.get("/dashboard", isLoggedIn, function(req, res) {
-
-        db.Doctors.findAll({})
-        .then(function(docResults) {
-             //call the specific patient, grab the data
-            db.Patients.findOne({
-                where: {
-                    patient_id: req.user.id
-                }
-            })
-            .then(function(patientResults) {
-                res.render("dashboard", { doctors: docResults, patients: patientResults  });
-            })
-
-            //with the patient data             
-            
-        });
+        if (req.user.removed === true) {
+            res.render("404");
+        } else {
+            db.Doctors.findAll({}).then(function(docResults) {
+                db.Patients.findAll({}).then(function(patResults) {
+                    res.render("dashboard", {
+                        doctors: docResults,
+                        patients: patResults
+                    });
+                });
+            });
+        }
 
         // console.log("Username " + req.user.username);
         // console.log(req.user);
