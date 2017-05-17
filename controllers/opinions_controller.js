@@ -116,7 +116,11 @@ router.get("/docs", function(req, res) {
     db.Doctors.findAll({}).then(function(results) {
         res.render("docs", { doctors: results });
     });
-})
+});
+
+router.get("/about", function(req, res) {
+    res.render("about");
+});
 
 //receives the UID and calls getBestDoc function to do API call and get profile of doctor and send the response back
 router.get("/bestdoctor/:uid", function(req, res) {
