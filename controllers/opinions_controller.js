@@ -2,6 +2,8 @@
 var express = require("express");
 var router = express.Router();
 var Client = require("node-rest-client").Client;
+var algorithm = require("../lib/algorithmOnly.js");
+var path = require("path");
 
 var db = require("../models");
 
@@ -111,7 +113,7 @@ router.put("/admin/remove-admin/:id", function(req,res) {
     })
 })
 
-//Router to render all of the available doctrocs on the docs page
+//Router to render all of the available doctors on the docs page
 router.get("/docs", function(req, res) {
     db.Doctors.findAll({}).then(function(results) {
         res.render("docs", { doctors: results });
@@ -124,17 +126,153 @@ router.get("/about", function(req, res) {
 
 //receives the UID and calls getBestDoc function to do API call and get profile of doctor and send the response back
 router.get("/bestdoctor/:uid", function(req, res) {
-    var uid = req.params.uid;
-    getBestDoc(uid, function(data) {
-        res.json(data)
+   
+        var uid = req.params.uid;
+        getBestDoc(uid, function(docMatch) {
+            res.json(docMatch)
     })
+    
 });
 
 //API call
 function getBestDoc(uid, cb) {
     client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, res) {
-        cb(data);
+ 
+        docMatch = new Object (); 
+        docMatch.first_name = data.data.profile.first_name; 
+        docMatch.last_name = data.data.profile.last_name; 
+        docMatch.language = data.data.practices[0].languages[0].name;  
+        docMatch.school = data.data.educations[0].school;
+        docMatch.degree = data.data.educations[0].degree;  
+        docMatch.title = data.data.profile.title;
+        docMatch.specialty = data.data.specialties[0].actor; 
+        docMatch.gender = data.data.profile.gender; 
+        docMatch.image = data.data.profile.image_url;
+        docMatch.bio = data.data.profile.bio; 
+        docMatch.practice_name = data.data.practices[0].name; 
+        docMatch.street = data.data.practices[0].visit_address.street;
+        docMatch.street2 = data.data.practices[0].visit_address.street2; 
+        docMatch.city = data.data.practices[0].visit_address.city;
+        docMatch.state = data.data.practices[0].visit_address.state;    
+        docMatch.zip = data.data.practices[0].visit_address.zip;  
+        docMatch.phone = data.data.practices[0].phones[0].number; 
+
+        console.log(docMatch);
+
+        cb(docMatch);
     })
+}
+
+
+router.get("/currentdoctor/:uid", function(req, res) {
+   
+        var currentDoctorId = req.params.uid;
+        getMatchDoc(currentDoctorId, function(bestMatch) {
+            res.json(bestMatch)
+    })
+    
+});
+
+function getMatchDoc (currentDoctorId, cb), {
+
+    var currentDoctorSpecialty = "";
+    var currentDoctorTotal = "";
+    var doctorsArray = []; 
+    var docObject = "";
+    var totalsArray = []; 
+    var potentialsArray = []; 
+    var matchesArray = []; 
+    var bestMatch = ""; 
+    var max = 0; 
+
+
+    var sqlStatement = "SELECT * FROM doctors WHERE bestdoc_id = ?";
+
+    connection.query(sqlStatement, [currentDoctorId], function (err, response) {
+        if (err) {
+            console.log(err); 
+        } else {
+            currentDoctorTotal = response[0].total;
+            currentDoctorSpecialty = response[0].primary_specialty;
+            createDocArray(currentDoctorSpecialty);
+        }
+    });
+
+    function createDocArray (currentDoctorSpecialty) {
+
+        var sqlStatement2 = "SELECT * FROM doctors WHERE primary_specialty = ?"; 
+
+            connection.query(sqlStatement2, [currentDoctorSpecialty], function (err,response) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    for (var i = 0; i < response.length; i++) {
+                    
+                        docObject = new Object (); 
+                        docObject.id = response[i].doc_id;
+                        docObject.bestdoc_id = response[i].bestdoc_id;
+                        docObject.total = response[i].total;
+                        
+                        doctorsArray.push(docObject);
+                    }               
+                }
+                doctorsSort(doctorsArray); 
+            
+            }); 
+    
+    }
+
+
+    function doctorsSort (doctorsArray) {
+
+        for (var i = 0; i < doctorsArray.length; i++) {
+            if(currentDoctorTotal < doctorsArray[i].total && currentDoctorId !== doctorsArray[i].doc_id) {
+                totalsArray.push(doctorsArray[i].total);
+            }
+        }
+
+        
+        getMatches(totalsArray, doctorsArray);
+        
+    }           
+    
+
+    function getMatches (totalsArray, doctorsArray) {
+
+        for (var j = 0; j < totalsArray.length; i++) {
+            
+            max = Math.max(...totalsArray);
+
+                for (var i = 0; i < doctorsArray.length; i++) {
+
+                    if(doctorsArray[i].total === max) {
+                        potentialsArray.push(doctorsArray[i]);
+                        
+                    }
+                }   
+            
+            var index = totalsArray.indexOf(max); 
+            totalsArray.splice(index, 1); 
+            
+        }
+
+        getFinalists(potentialsArray, matchesArray); 
+
+    }
+
+    function getFinalists(potentialsArray, matchesArray) {
+
+        for (var i = 0; i < potentialsArray.length; i++) {
+            if (i < 6) {
+                matchesArray.push(potentialsArray[i])
+            
+            }   
+        }
+        
+        bestMatch = matchesArray[0];   
+        console.log(matchesArray); 
+        cb(bestMatch); 
+    }
 }
 
 //pull all the doctor data from MySQL
