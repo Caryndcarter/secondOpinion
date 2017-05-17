@@ -38,7 +38,21 @@
         <h2>Your Second Opinion</h2>
         <hr>
 
-
+        {{#each patients}}
+            {{#if this.match_doctor}}
+                <div class="row doctor-result">
+                    <div class="col-md-3"><img src="../public/assets/catscan.jpg"></div>
+                    <div class="col-md-9">
+                        <h4>Muffy Von Fluff, MD</h4>
+                        <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>
+                        <p>Paws of Mercy Hospital: 234 Medical Rd. Chicago, IL</p>
+                        <p>Tel: (555)867-5309</p>
+                    </div>
+                </div>
+            {{else}}
+                To get started, please fill out the patient request form.
+            {{/if}}
+        {{/each}}
 
         <!--
             <p>Doctor Name: Bruce Banner, MD</p>

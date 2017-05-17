@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         match_doctor: {
             type: DataTypes.STRING,
-            defaultValue: "None",
+            defaultValue: null,
             validate: {
                 len: [1]
             }
