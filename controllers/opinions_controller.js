@@ -126,8 +126,9 @@ router.get("/about", function(req, res) {
 router.get("/bestdoctor/:uid", function(req, res) {
     var uid = req.params.uid;
     getBestDoc(uid, function(data) {
-        res.json(data)
-    })
+        res.json(data);
+        // res.render("/dashboard", { bestdoctors: data });
+    });
 });
 
 //API call
