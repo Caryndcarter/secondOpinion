@@ -174,7 +174,7 @@ router.get("/currentdoctor/:uid", function(req, res) {
     
 });
 
-function getMatchDoc (currentDoctorId, cb), {
+function getMatchDoc (currentDoctorId, cb) {
 
     var currentDoctorSpecialty = "";
     var currentDoctorTotal = "";
@@ -186,37 +186,34 @@ function getMatchDoc (currentDoctorId, cb), {
     var bestMatch = ""; 
     var max = 0; 
 
-
-    var sqlStatement = "SELECT * FROM doctors WHERE bestdoc_id = ?";
-
-    connection.query(sqlStatement, [currentDoctorId], function (err, response) {
-        if (err) {
-            console.log(err); 
-        } else {
-            currentDoctorTotal = response[0].total;
-            currentDoctorSpecialty = response[0].primary_specialty;
-            createDocArray(currentDoctorSpecialty);
+    db.Doctors.findAll({ 
+        where: {
+            bestdoc_id: currentDoctorId
         }
-    });
+    }).then (function (bestDocData) {
+        currentDoctorTotal = bestDocData.total; 
+        currentDoctorSpecialty = bestDocData.primary_specialty; 
+        createDocArray(currentDoctorSpecialty);
+    }); 
 
-    function createDocArray (currentDoctorSpecialty) {
+    function createDocArray (currentDoctorSpecialty) { 
 
-        var sqlStatement2 = "SELECT * FROM doctors WHERE primary_specialty = ?"; 
-
-            connection.query(sqlStatement2, [currentDoctorSpecialty], function (err,response) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    for (var i = 0; i < response.length; i++) {
+            db.Doctors.findAll({ 
+                where: {
+                    primary_specialty: currentDoctorSpecialty
+                }
+            }).then (function (specialDocData) {
+                    
+                    for (var i = 0; i < specialDocData.length; i++) {
                     
                         docObject = new Object (); 
-                        docObject.id = response[i].doc_id;
-                        docObject.bestdoc_id = response[i].bestdoc_id;
-                        docObject.total = response[i].total;
+                        docObject.id = specialDocData[i].doc_id;
+                        docObject.bestdoc_id = specialDocData[i].bestdoc_id;
+                        docObject.total = specialDocData[i].total;
                         
                         doctorsArray.push(docObject);
                     }               
-                }
+                
                 doctorsSort(doctorsArray); 
             
             }); 
@@ -272,8 +269,10 @@ function getMatchDoc (currentDoctorId, cb), {
         
         bestMatch = matchesArray[0];   
         console.log(matchesArray); 
-        cb(bestMatch); 
+        
     }
+
+    cb(bestMatch); 
 }
 
 //pull all the doctor data from MySQL
