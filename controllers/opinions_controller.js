@@ -164,7 +164,7 @@ function getBestDoc(uid, cb) {
 }
 
 
-router.get("/currentdoctor/:uid", function(req, res {
+router.get("/currentdoctor/:uid", function(req, res) {
    
         var currentDoctorId = req.params.uid;
         getMatchDoc(currentDoctorId, function(bestMatch) {
@@ -173,7 +173,7 @@ router.get("/currentdoctor/:uid", function(req, res {
     
 });
 
-function getMatchDoc (currentDoctorId, cb), {
+function getMatchDoc (currentDoctorId, cb) {
 
     var currentDoctorSpecialty = "";
     var currentDoctorTotal = "";
@@ -212,7 +212,7 @@ function getMatchDoc (currentDoctorId, cb), {
                         
                         doctorsArray.push(docObject);
                     }               
-                }
+                
                 doctorsSort(doctorsArray); 
             
             }); 
