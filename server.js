@@ -8,7 +8,7 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 2012;
+var PORT = process.env.PORT || 3308;
 
 //Serve static content from public directory
 app.use(express.static(process.cwd() + "/public"));
