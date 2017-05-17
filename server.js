@@ -35,12 +35,11 @@ require("./config/passport.js")(passport, db.Patients);
 
 //Setting up Handlebars
 var exphbs = require("express-handlebars");
-var helpers = require("./views/helpers");
+
 //Adding Partial Directory
 var hbs = exphbs.create({
     defaultLayout: "main",
-    partialsDir: ["views/partials/"],
-    helpers: helpers
+    partialsDir: ["views/partials/"]
 });
 
 app.engine("handlebars", hbs.engine);
