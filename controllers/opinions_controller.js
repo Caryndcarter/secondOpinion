@@ -2,6 +2,8 @@
 var express = require("express");
 var router = express.Router();
 var Client = require("node-rest-client").Client;
+var algorithm = require("../lib/algorithmOnly.js");
+var path = require("path");
 
 var db = require("../models");
 
@@ -124,10 +126,12 @@ router.get("/about", function(req, res) {
 
 //receives the UID and calls getBestDoc function to do API call and get profile of doctor and send the response back
 router.get("/bestdoctor/:uid", function(req, res) {
-    var uid = req.params.uid;
-    getBestDoc(uid, function(data) {
-        res.json(data)
+   
+        var uid = req.params.uid;
+        getBestDoc(uid, function(docMatch) {
+            res.json(docMatch)
     })
+    
 });
 
 //API call
@@ -137,7 +141,7 @@ function getBestDoc(uid, cb) {
         docMatch = new Object (); 
         docMatch.first_name = data.data.profile.first_name; 
         docMatch.last_name = data.data.profile.last_name; 
-        docMatch.language = data.data.practices[0].languages[0].name;     
+        docMatch.language = data.data.practices[0].languages[0].name;  
         docMatch.school = data.data.educations[0].school;
         docMatch.degree = data.data.educations[0].degree;  
         docMatch.title = data.data.profile.title;
@@ -160,11 +164,117 @@ function getBestDoc(uid, cb) {
 }
 
 
-// router.post("/doctor-matches", function (req,res) {
+router.get("/currentdoctor/:uid", function(req, res) {
+   
+        var currentDoctorId = req.params.uid;
+        getMatchDoc(currentDoctorId, function(bestMatch) {
+            res.json(bestMatch)
+    })
+    
+});
 
-//     // var currentDoctorId = req.body.uid; 
+function getMatchDoc (currentDoctorId, cb), {
 
-// });
+    var currentDoctorSpecialty = "";
+    var currentDoctorTotal = "";
+    var doctorsArray = []; 
+    var docObject = "";
+    var totalsArray = []; 
+    var potentialsArray = []; 
+    var matchesArray = []; 
+    var bestMatch = ""; 
+    var max = 0; 
+
+
+    var sqlStatement = "SELECT * FROM doctors WHERE bestdoc_id = ?";
+
+    connection.query(sqlStatement, [currentDoctorId], function (err, response) {
+        if (err) {
+            console.log(err); 
+        } else {
+            currentDoctorTotal = response[0].total;
+            currentDoctorSpecialty = response[0].primary_specialty;
+            createDocArray(currentDoctorSpecialty);
+        }
+    });
+
+    function createDocArray (currentDoctorSpecialty) {
+
+        var sqlStatement2 = "SELECT * FROM doctors WHERE primary_specialty = ?"; 
+
+            connection.query(sqlStatement2, [currentDoctorSpecialty], function (err,response) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    for (var i = 0; i < response.length; i++) {
+                    
+                        docObject = new Object (); 
+                        docObject.id = response[i].doc_id;
+                        docObject.bestdoc_id = response[i].bestdoc_id;
+                        docObject.total = response[i].total;
+                        
+                        doctorsArray.push(docObject);
+                    }               
+                }
+                doctorsSort(doctorsArray); 
+            
+            }); 
+    
+    }
+
+
+    function doctorsSort (doctorsArray) {
+
+        for (var i = 0; i < doctorsArray.length; i++) {
+            if(currentDoctorTotal < doctorsArray[i].total && currentDoctorId !== doctorsArray[i].doc_id) {
+                totalsArray.push(doctorsArray[i].total);
+            }
+        }
+
+        
+        getMatches(totalsArray, doctorsArray);
+        
+    }           
+    
+
+    function getMatches (totalsArray, doctorsArray) {
+
+        for (var j = 0; j < totalsArray.length; i++) {
+            
+            max = Math.max(...totalsArray);
+
+                for (var i = 0; i < doctorsArray.length; i++) {
+
+                    if(doctorsArray[i].total === max) {
+                        potentialsArray.push(doctorsArray[i]);
+                        
+                    }
+                }   
+            
+            var index = totalsArray.indexOf(max); 
+            totalsArray.splice(index, 1); 
+            
+        }
+
+        getFinalists(potentialsArray, matchesArray); 
+
+    }
+
+    function getFinalists(potentialsArray, matchesArray) {
+
+        for (var i = 0; i < potentialsArray.length; i++) {
+            if (i < 6) {
+                matchesArray.push(potentialsArray[i])
+            
+            }   
+        }
+        
+        bestMatch = matchesArray[0];   
+        console.log(matchesArray); 
+        cb(bestMatch); 
+    }
+}
+
 //pull all the doctor data from MySQL
 	//Feed the relevant information into the doctor section of the  handlebars template
 	//for now, displaying a dummy page.
