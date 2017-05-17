@@ -16,8 +16,13 @@ module.exports = function (passport) {
         if (req.user.removed === true) {
             res.render("404");
         } else {
-            db.Doctors.findAll({}).then(function(results) {
-                res.render("dashboard", { doctors: results });
+            db.Doctors.findAll({}).then(function(docResults) {
+                db.Patients.findAll({}).then(function(patResults) {
+                    res.render("dashboard", {
+                        doctors: docResults,
+                        patients: patResults
+                    });
+                });
             });
         }
 
