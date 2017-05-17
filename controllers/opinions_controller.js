@@ -126,12 +126,11 @@ router.get("/about", function(req, res) {
 
 //receives the UID and calls getBestDoc function to do API call and get profile of doctor and send the response back
 router.get("/bestdoctor/:uid", function(req, res) {
-   
         var uid = req.params.uid;
         getBestDoc(uid, function(docMatch) {
             res.json(docMatch)
     })
-    
+
 });
 
 //API call
