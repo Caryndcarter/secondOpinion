@@ -177,11 +177,42 @@ router.post("/dashboard/matches", function (req,res) {
 
 //     function doctorsSort (doctorsArray) {
 
+
 //         for (var i = 0; i < doctorsArray.length; i++) {
 //             if(currentDoctorTotal < doctorsArray[i].total && currentDoctorId !== doctorsArray[i].doc_id) {
 //                 totalsArray.push(doctorsArray[i].total);
 //             }
 //         }
+
+//API call
+function getBestDoc(uid, cb) {
+    client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, res) {
+
+ 
+        docMatch = new Object (); 
+        docMatch.first_name = data.data.profile.first_name; 
+        docMatch.last_name = data.data.profile.last_name; 
+        docMatch.language = data.data.practices[0].languages[0].name;  
+        docMatch.school = data.data.educations[0].school;
+        docMatch.degree = data.data.educations[0].degree;  
+        docMatch.title = data.data.profile.title;
+        docMatch.specialty = data.data.specialties[0].actor; 
+        docMatch.gender = data.data.profile.gender; 
+        docMatch.image = data.data.profile.image_url;
+        docMatch.bio = data.data.profile.bio; 
+        docMatch.practice_name = data.data.practices[0].name; 
+        docMatch.street = data.data.practices[0].visit_address.street;
+        docMatch.street2 = data.data.practices[0].visit_address.street2; 
+        docMatch.city = data.data.practices[0].visit_address.city;
+        docMatch.state = data.data.practices[0].visit_address.state;    
+        docMatch.zip = data.data.practices[0].visit_address.zip;  
+        docMatch.phone = data.data.practices[0].phones[0].number; 
+
+        console.log(docMatch);
+
+        cb(docMatch);
+    })
+}
 
         
 //         getMatches(totalsArray, doctorsArray);
