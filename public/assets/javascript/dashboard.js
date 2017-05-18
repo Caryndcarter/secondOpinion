@@ -33,20 +33,27 @@ $('.patient-button').on('click', function(event) {
  		// matchTxt.append('<h3>' + 'CHECK OUT THIS DOCTOR' + '</h3>');
  		// matchTxt.append(data);
 
+ 		var imgBox = $('<div></div>');
+ 		imgBox.addClass('row').addClass('match-image');
+
  		var matchImg = $('<div></div>');
  		matchImg.addClass('col-md-3').addClass('match-image');
  		matchImg.append('<img src="'+ data.image +'">');
+
+ 		var matchStats = $('<div></div>');
+ 		matchStats.addClass('col-md-9').addClass('match-image');
+ 		matchStats.append('<h3>' + data.first_name +' '+ data.last_name + ', '+ data.title + '</h3>');
+ 		matchStats.append('<p>' + data.specialty + '</p>');
+ 		matchStats.append('<p>' + '<b>Education:</b> ' + data.school + ', ' + data.degree + '</p>');
+ 		matchStats.append('<p> <b>Languages:</b> ' + data.language + ' <b>Gender:</b> ' + data.gender + '</p>');
  		
+ 		imgBox.append(matchImg).append(matchStats);
 
  		var matchTxt = $('<div></div>');
- 		matchTxt.addClass('col-md-9').addClass('match-text');
- 		matchTxt.append('<h3>' + data.first_name +' '+ data.last_name + ', '+ data.title + '</h3>');
- 		matchTxt.append('<p>' + data.specialty + '</p>');
- 		matchTxt.append('<p>' + '<b>Education:</b> ' + data.school + ', ' + data.degree + '</p>');
- 		matchTxt.append('<p> <b>Languages:</b> ' + data.language + ' <b>Gender:</b> ' + data.gender + '</p>');
+ 		matchTxt.addClass('row').addClass('match-text');
  		matchTxt.append('<p>'+ data.bio + '</p>');
 
- 		$('.doc-results').append(matchImg).append(matchTxt);
+ 		$('.doc-results').append(imgBox).append(matchTxt);
  		
  	});
 
