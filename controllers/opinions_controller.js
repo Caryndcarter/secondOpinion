@@ -164,6 +164,7 @@ function getBestDoc(uid, cb) {
 }
 
 
+
 router.get("/currentdoctor/:uid", function(req, res) {
    
         var currentDoctorId = req.params.uid;
