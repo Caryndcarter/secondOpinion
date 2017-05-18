@@ -46,7 +46,8 @@ $('.patient-button').on('click', function(event) {
  		matchStats.append('<p>' + data.specialty + '</p>');
  		matchStats.append('<p>' + '<b>Education:</b> ' + data.school + ', ' + data.degree + '</p>');
  		matchStats.append('<p> <b>Languages:</b> ' + data.language + ' <b>Gender:</b> ' + data.gender + '</p>');
- 		
+
+
  		imgBox.append(matchImg).append(matchStats);
 
  		var matchTxt = $('<div></div>');
@@ -54,7 +55,7 @@ $('.patient-button').on('click', function(event) {
  		matchTxt.append('<p>'+ data.bio + '</p>');
 
  		$('.doc-results').append(imgBox).append(matchTxt);
- 		
+
  	});
 
 });
