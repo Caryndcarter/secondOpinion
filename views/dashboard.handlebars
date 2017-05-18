@@ -15,8 +15,7 @@
                     <select data-placeholder="" name="current_doctor" class="doctors-select" id="doctor">
                         {{#each doctors}}
                             {{#unless removed}}
-                                <option value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
-                                }
+                                <option class = "docid" value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
                             {{/unless}}
                         {{/each}}
                     </select>
@@ -41,10 +40,9 @@
         <h2>Your Second Opinion</h2>
         <hr>
 
-       {{!--  {{#each user}} --}}
             {{#if user.match_doctor}}
                 <div class="row doctor-result">
-                    <div class="col-md-3"><img src="../public/assets/catscan.jpg"></div>
+                    <div class="col-md-3"><img src="/assets/catscan.jpg"></div>
                     <div class="col-md-9">
                         <h4>Muffy Von Fluff, MD</h4>
                         <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>

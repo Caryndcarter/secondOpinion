@@ -43,3 +43,4 @@ Setup and Running the App Locally
 * To gain admin access, after running `node server.js` once, and registering a `patient` account. Open up `MySQL Workbench` and access the `patients table` modify the isAdmin column and change the value from `0` to `1` and apply the change. Doing this will allow you to view the admin dashboard. 
 
 
+
