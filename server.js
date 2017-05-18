@@ -51,7 +51,8 @@ var authroute = require("./controllers/authcontroller.js")(passport);
 
 app.use("/", opinions);
 app.use("/", authroute);
-//Default Page for all unknown url
+
+// Default Page for all unknown url
 // app.get("*", function(req, res) {
 // 	res.redirect("/");
 // });
@@ -63,7 +64,6 @@ app.use("/", authroute);
 //   //for now, just rendering the index page
 //   res.render('index');
 // });
-
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {

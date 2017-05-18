@@ -68,6 +68,7 @@ module.exports = function(sequelize, DataTypes) {
         },
     },
         {
+            timestamps: false,
             classMethods: {
                 associate: function(models) {
                     Patients.belongsTo(models.Doctors, {
