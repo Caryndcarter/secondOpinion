@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <h2>Patient Request</h2>
         <hr>
-        <form class="create-form update-patient" action="/dashboard/update-patient/{{user.patient_id}}?_method=PUT" method="POST">
+       {{!--  <form class="create-form add-patient" action="/dashboard/update-patient/{{this.patient_id}}?_method=PUT" method="POST"> --}}
             <div class="form-group">
 
                 <label for="diagnosis"class="col-md-4 control-label">Diagnosis:</label>
@@ -12,7 +12,7 @@
 
                 <label for="current_doctor" class="col-md-4 control-label">Current Doctor:</label>
                 <div class="col-md-8">
-                    <select data-placeholder="" name="current_doctor" class="doctors-select" id="current_doctor">
+                    <select data-placeholder="" name="current_doctor" class="doctors-select" id="doctor">
                         {{#each doctors}}
                             {{#unless removed}}
                                 <option class = "docid" value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
@@ -34,7 +34,7 @@
                 <button type="submit" class="btn btn-primary patient-button">Submit</button>
 
             </div>
-        </form>
+        {{!-- </form> --}}
     </div>
 
 <!--Results Panel-->
