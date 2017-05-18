@@ -1,6 +1,6 @@
 console.log("dashboard.js loaded");
 
-$('.patient-button').on(click, function(event) {
+$('.patient-button').on("click", function(event) {
 	event.preventDefault();
 
  	var currentURL = window.location.origin;

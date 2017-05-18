@@ -125,7 +125,9 @@ router.get("/about", function(req, res) {
 });
 
 router.post("/dashboard/matches", function (req,res) {
-    res.render("about");
+
+    console.log(req.body);
+    console.log("Hey I'm here");
 
 }); 
 //     var currentDoctorId = req.body; 
