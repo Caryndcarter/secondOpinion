@@ -69,6 +69,35 @@ router.put("/admin/add-admin/:id", function(req, res) {
     });
 });
 
+//Router to update to add an admin based on the current Patients table
+router.put("/admin/unremove-doc/:id", function(req, res) {
+    // console.log(req.body);
+    // console.log(req.body.id);
+    db.Doctors.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            doc_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
+router.put("/admin/unremove-patient/:id", function(req, res) {
+    // console.log(req.body);
+    // console.log(req.body.id);
+    db.Patients.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
 //Router to "delete" a patient from the current Patient table
 router.put("/admin/remove-patient/:id", function(req, res) {
     // console.log(req.body);
