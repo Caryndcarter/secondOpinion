@@ -16,13 +16,14 @@ $('.patient-button').on('click', function(event) {
  	$.post(currentURL + '/dashboard/matches', {'id': docID}, function(data) {
  		console.log(docID);
 
- 		var matchImg = $('<div></div>');
+ 		// var matchImg = $('<div></div>');
 
- 		matchImg.addClass('col-md-3');
+ 		// matchImg.addClass('col-md-3');
 
- 		var matchTxt = $('')
+ 		// var matchTxt = $('')
 
- 		$('.doc-results').html();
+ 		console.log(data);
+ 		$('.doc-results').html(data);
 
 
  		
