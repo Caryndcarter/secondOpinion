@@ -226,8 +226,8 @@ router.post("/dashboard/matches", function (req,res) {
 
         var uid = bestMatch.bestdoc_id; 
 
-        client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, res) {
-
+        client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, response) {
+                
             docMatch = new Object (); 
             docMatch.first_name = data.data.profile.first_name; 
             docMatch.last_name = data.data.profile.last_name; 
@@ -248,10 +248,10 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.phone = data.data.practices[0].phones[0].number; 
 
             console.log(docMatch);
+            res.json(docMatch);
 
         });
           
-
     }
 
 }); 
