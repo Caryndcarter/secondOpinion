@@ -6,7 +6,6 @@ var passport = require("passport");
 var session = require("express-session");
 var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
-var pg = require("pg");
 
 var app = express();
 var PORT = process.env.PORT || 3308;
@@ -64,18 +63,6 @@ app.use("/", authroute);
 //   //for now, just rendering the index page
 //   res.render('index');
 // });
-
-app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM test_table', function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
-    });
-  });
-});
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
