@@ -17,7 +17,9 @@ router.get("/", function(req, res) {
 //Router to update the current doctor and diagnosis for the logged in patient
 router.put("/dashboard/update-patient/:id", function(req, res) {
     // console.log(req.body);
-
+    console.log(`Activating dashboard update patient
+        Doctor: ${req.body.current_doctor}
+        Dianogsis: ${req.body.diagnosis}`);
     db.Patients.update({
         current_doctor: req.body.current_doctor,
         diagnosis: req.body.diagnosis
@@ -69,7 +71,7 @@ router.put("/admin/add-admin/:id", function(req, res) {
     });
 });
 
-//Router to update to add an admin based on the current Patients table
+//Router to unremove a doctor
 router.put("/admin/unremove-doc/:id", function(req, res) {
     // console.log(req.body);
     // console.log(req.body.id);
@@ -83,7 +85,7 @@ router.put("/admin/unremove-doc/:id", function(req, res) {
         res.redirect("/admin");
     });
 });
-
+//Router to unremove a patient
 router.put("/admin/unremove-patient/:id", function(req, res) {
     // console.log(req.body);
     // console.log(req.body.id);

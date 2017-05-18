@@ -7,7 +7,15 @@ $('.patient-button').on('click', function(event) {
 
  	var currentURL = window.location.origin;
 
- 	var docID = $('.docid').val().trim();
+    var clientData = {
+        current_doctor: $(".docid:selected").text(),
+        diagnosis: $("#diagnosis").val().trim(),
+        id: $(".docid:selected").val().trim()
+    }
+
+    console.log(clientData);
+
+ 	var docID = $('.docid:selected').val().trim();
 
  	console.log(docID);
 
@@ -21,7 +29,7 @@ $('.patient-button').on('click', function(event) {
 
 
 
- 	$.post(currentURL + '/dashboard/matches', {'id': docID}, function(data) {
+ 	$.post(currentURL + '/dashboard/matches', {'id': clientData.id}, function(data) {
  		// console.log('this is the data: ' + data);
 
  		// var matchImg = $('<div></div>');
