@@ -154,7 +154,7 @@ router.get("/about", function(req, res) {
 
 router.post("/dashboard/matches", function (req,res) {
 
-    var currentDoctorId = req.body.id;
+    var currentDoctorId = "0809137a2075b1af5bf27d5f874c7a2a";
     var currentDoctorSpecialty = "";
     var currentDoctorTotal = "";
     var docMatch = "";
@@ -164,6 +164,7 @@ router.post("/dashboard/matches", function (req,res) {
     var potentialsArray = [];
     var matchesArray = [];
     var bestMatch = "";
+    var matchText = "";
     var max = 0;
 
     db.Doctors.findAll({
@@ -208,9 +209,7 @@ router.post("/dashboard/matches", function (req,res) {
     function doctorsSort (doctorsArray) {
 
         for (var i = 0; i < doctorsArray.length; i++) {
-            if(currentDoctorTotal < doctorsArray[i].total) {
                 totalsArray.push(doctorsArray[i].total);
-            }
         }
 
         getMatches(totalsArray, doctorsArray);
@@ -248,13 +247,22 @@ router.post("/dashboard/matches", function (req,res) {
             }
         }
 
-        bestMatch = matchesArray[0];
+        console.log(matchesArray[0].id)
+        console.log(currentDoctorId); 
 
-        getBestDoc(bestMatch);
+        if(matchesArray[0].bestdoc_id !== currentDoctorId) {
+            bestMatch = matchesArray[0];
+            matchText = "Best Specialist in Your Region";
+        } else {
+            bestMatch = matchesArray[1];
+            matchText = "Your Specialist is the Best. Our Recommendation:";
+        }
+
+        getBestDoc(bestMatch, matchText);
 
     }
 
-    function getBestDoc(bestMatch) {
+    function getBestDoc(bestMatch, matchText) {
 
         var uid = bestMatch.bestdoc_id;
 
@@ -264,8 +272,8 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.first_name = data.data.profile.first_name;
             docMatch.last_name = data.data.profile.last_name;
             docMatch.language = data.data.practices[0].languages[0].name;
-            docMatch.school = data.data.educations[0].school;
-            docMatch.degree = data.data.educations[0].degree;
+            docMatch.education = data.data.educations[0];
+            // docMatch.degree = data.data.educations[0].degree;
             docMatch.title = data.data.profile.title;
             docMatch.specialty = data.data.specialties[0].actor;
             docMatch.gender = data.data.profile.gender;
@@ -278,7 +286,8 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.state = data.data.practices[0].visit_address.state;
             docMatch.zip = data.data.practices[0].visit_address.zip;
             docMatch.phone = data.data.practices[0].phones[0].number;
-
+            docMatch.text = matchText;   
+            
             console.log(docMatch);
             res.json(docMatch);
 
