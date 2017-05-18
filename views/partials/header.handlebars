@@ -9,8 +9,8 @@
 
     <div class="col-md-3 col-md-offset-3 navbar-text navbar-right">
     {{#if user}}
-      <p class="user-text">Welcome, {{user.firstname}} {{user.lastname}}</p>
-      <p><a href="/logout">Log Out</a></p>
+      <p class="user-text">Welcome, {{user.firstname}} {{user.lastname}} | <a href="/logout">Log Out</a></p>
+      
     {{else}}
     <!-- login button and modal -->
       <button class="btn btn-warning btn-md" data-target="#login-modal" data-toggle="modal" type="button">Login <span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>

@@ -2,7 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var Client = require("node-rest-client").Client;
-var algorithm = require("../lib/algorithmOnly.js");
+// var algorithm = require("../lib/algorithmOnly.js");
 var path = require("path");
 
 var db = require("../models");
@@ -172,7 +172,6 @@ router.post("/dashboard/matches", function (req,res) {
 //             }); 
     
 //     }
-
 
 //     function doctorsSort (doctorsArray) {
 
