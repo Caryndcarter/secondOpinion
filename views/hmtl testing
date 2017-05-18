@@ -1,0 +1,38 @@
+<select data-placeholder = "" name = "specialty" class = "custom-select specialty-select" id="specialty">
+	<
+
+
+
+	<div class="form-group">
+
+                <label for="diagnosis"class="col-md-4 control-label">Diagnosis:</label>
+                <div class="col-md-8">
+                <input type="text" name="diagnosis" id="diagnosis" placeholder="Current Diagnosis">
+                </div>
+
+                <label for="current_doctor" class="col-md-4 control-label">Current Doctor:</label>
+                <div class="col-md-8">
+                    <select data-placeholder="" name="current_doctor" class="doctors-select" id="doctor">
+                        {{#each doctors}}
+                            {{#unless removed}}
+                                <option class = "docid" value="{{this.bestdoc_id}}">{{this.first_name}} {{this.last_name}},{{this.title}}</option>
+                            {{/unless}}
+                        {{/each}}
+                    </select>
+                </div>
+        <!--
+                <h4>What type of specialist are you looking for?</h4>
+                <select data-placeholder="" name="speciality" class="speciality-select" id="speciality">
+                    <option value="oncology">Oncology</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="obstetrics">Obstetrics</option>
+                    <option value="rheumatology">Rheumatology</option>
+                </select>
+        -->
+                <br><br>
+
+                <button type="submit" class="btn btn-primary patient-button">Submit</button>
+
+            </div>
+        {{!-- </form> --}}
+    </div>

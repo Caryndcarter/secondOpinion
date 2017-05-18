@@ -173,9 +173,13 @@ router.post("/dashboard/matches", function (req,res) {
             bestdoc_id: currentDoctorId
         }
     }).then (function (data) {
-        currentDoctorTotal = data[0].total;
-        currentDoctorSpecialty = data[0].primary_specialty;
+
+        currentDoctorTotal = data[0].dataValues.total;
+        currentDoctorSpecialty = data[0].dataValues.primary_specialty;
         createDocArray(currentDoctorSpecialty);
+        console.log(currentDoctorTotal);
+        console.log(currentDoctorSpecialty);
+        console.log(data);
     });
 
 

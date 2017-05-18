@@ -35,7 +35,7 @@
                                     <td>
                                         <form method="POST" action="/admin/remove-doc/{{this.doc_id}}?_method=PUT">
                                             <input type="hidden" name="removed" value="true">
-                                            <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                            <button class="btn-danger" type="submit">Remove Doc? <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -95,7 +95,7 @@
                                         {{#unless isAdmin}}
                                         <form method="POST" action="/admin/add-admin/{{this.patient_id}}?_method=PUT">
                                             <input type="hidden" name="isAdmin" value="true">
-                                            <button class="btn-warning" type="submit">Give Admin <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+                                            <button class="btn-warning" type="submit">Give Admin <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
                                         </form>
                                         {{/unless}}
                                     </td>
@@ -155,7 +155,7 @@ Show all admins <span class="glyphicon glyphicon-sunglasses" aria-hidden="true">
                                             <!-- btn to revoke admin power -->
                                             <form action="/admin/remove-admin/{{this.patient_id}}?_method=PUT" method="POST">
                                                 <input type="hidden" name="revode" value="false">
-                                                <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                <button class="btn-danger" type="submit">Revoke Admin Privileges? <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -208,8 +208,8 @@ Show all admins <span class="glyphicon glyphicon-sunglasses" aria-hidden="true">
                                         <td>
                                             <form method="POST" action="/admin/unremove-doc/{{this.doc_id}}?_method=PUT">
                                             <input type="hidden" name="removed" value="false">
-                                            <button class="btn-primary" type="submit">Unremove Doctor?<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-                                        </form>
+                                            <button class="btn-primary" type="submit">Unremove Doctor? <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     {{/if}}
@@ -223,8 +223,8 @@ Show all admins <span class="glyphicon glyphicon-sunglasses" aria-hidden="true">
                                         <td>
                                             <form method="POST" action="/admin/unremove-patient/{{this.patient_id}}?_method=PUT">
                                             <input type="hidden" name="removed" value="false">
-                                            <button class="btn-primary" type="submit">Unremove Patient?<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-                                        </form>
+                                            <button class="btn-primary" type="submit">Unremove Patient?<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     {{/if}}
