@@ -256,6 +256,15 @@ router.post("/dashboard/matches", function (req,res) {
 //         console.log(matchesArray); 
         
 //     }
+
+
+router.get("/currentdoctor/:uid", function(req, res) {
+   
+        var currentDoctorId = req.params.uid;
+        getMatchDoc(currentDoctorId, function(bestMatch) {
+            res.json(bestMatch)
+    })
+
     
 // });
 

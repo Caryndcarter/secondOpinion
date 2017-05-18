@@ -11,19 +11,21 @@ $('.patient-button').on('click', function(event) {
 
  	console.log(docID);
 
- 	$.post(currentURL + '/dashboard/matches', docID, function(data) {
-
- 		// var matchimg = $('<div></div>');
-
- 		// matchimg.addClass('col-md-3');
 
 
- 		// var matchtxt = $('')
-
- 		// $('.doc-results').html();
-
-
+ 	$.post(currentURL + '/dashboard/matches', {'id': docID}, function(data) {
  		console.log(docID);
+
+ 		var matchImg = $('<div></div>');
+
+ 		matchImg.addClass('col-md-3');
+
+ 		var matchTxt = $('')
+
+ 		$('.doc-results').html();
+
+
+ 		
  	});
 
 });
