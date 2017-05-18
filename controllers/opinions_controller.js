@@ -164,6 +164,9 @@ function getBestDoc(uid, cb) {
 }
 
 
+router.post('/dashboard/matches', function(req,res){
+    res.send('it works!');
+});
 
 router.get("/currentdoctor/:uid", function(req, res) {
    

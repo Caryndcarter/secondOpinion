@@ -12,17 +12,29 @@ $('.patient-button').on('click', function(event) {
 
 
  	$.post(currentURL + '/dashboard/matches', {'id': docID}, function(data) {
- 		console.log(docID);
+ 		// console.log('this is the data: ' + data);
+
+ 		// var matchImg = $('<div></div>');
+ 		// matchImg.addClass('col-md-3').addClass('match-image');
+ 		// matchImg.append('<img src="/assets/catscan.jpg">');
+
+ 		// var matchTxt = $('<div></div>');
+ 		// matchTxt.addClass('col-md-9');
+ 		// matchTxt.append('<h3>' + 'CHECK OUT THIS DOCTOR' + '</h3>');
+ 		// matchTxt.append(data);
 
  		var matchImg = $('<div></div>');
+ 		matchImg.addClass('col-md-3').addClass('match-image');
+ 		matchImg.append('<img src="'+ data.image +'">');
 
- 		matchImg.addClass('col-md-3');
+ 		var matchTxt = $('<div></div>');
+ 		matchTxt.addClass('col-md-9');
+ 		matchTxt.append('<h3>' + data.first_name +' '+ data.last_name+ ', '+ data.title'</h3>');
+ 		matchTxt.append('<p>'+ 'Specialty: ' + data.specialty + ' Languages Spoken: ' data.language + ' Gender: ' + data.gender + ' Education: ' + data.school + data.degree +'</p>');
 
- 		var matchTxt = $('')
+ 		matchTxt.append('<p>'+ data.bio + '</p>');
 
- 		$('.doc-results').html();
-
-
+ 		$('.doc-results').append(matchImg).append(matchTxt);
  		
  	});
 
