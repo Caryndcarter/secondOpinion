@@ -41,8 +41,7 @@
         <h2>Your Second Opinion</h2>
         <hr>
 
-        {{#each patients}}
-            {{#if this.match_doctor}}
+            {{#if user.match_doctor}}
                 <div class="row doctor-result">
                     <div class="col-md-3"><img src="../public/assets/catscan.jpg"></div>
                     <div class="col-md-9">
@@ -51,12 +50,12 @@
                         <p>Paws of Mercy Hospital: 234 Medical Rd. Chicago, IL</p>
                         <p>Tel: (555)867-5309</p>
                     </div>
-                </div>
+                </div> --}}
             {{else}}
                 To get started, please fill out the patient request form.
             {{/if}}
-        {{/each}}
-
+{{!--         {{/each}}
+ --}}
         <!--
             <p>Doctor Name: Bruce Banner, MD</p>
             <p>Specialty: Kicking Ass, Taking Names</p>
