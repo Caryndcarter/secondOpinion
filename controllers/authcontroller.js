@@ -8,11 +8,16 @@ module.exports = function (passport) {
     //Checks to see if the user is logged in or not.
     //Checks to see if the user is "removed" or not. If they are render's the 404 page
     router.get("/dashboard", isLoggedIn, function(req, res) {
+        console.log("The patient id " + req.user.patient_id);
         if (req.user.removed === true) {
             res.render("404");
         } else {
             db.Doctors.findAll({}).then(function(docResults) {
-                db.Patients.findAll({}).then(function(patResults) {
+                db.Patients.findOne({
+                    where: {
+                        patient_id: req.user.patient_id
+                    }
+                }).then(function(patResults) {
                     res.render("dashboard", {
                         doctors: docResults,
                         patients: patResults
