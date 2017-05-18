@@ -62,7 +62,7 @@ $('.patient-button').on('click', function(event) {
  		
  		var contactTxt = $('<div></div>');
  		contactTxt.addClass('row').addClass('match-text'); 
- 		contactTxt.append('<p> <b>Practice Address: </b>' + data.street + "  " + data.street2 + '</p>');
+ 		contactTxt.append('<p> <b>Practice Address: </b>' + data.street + '</p>');
  		contactTxt.append('<p> <b>City, State Zip: </b>' + data.city + ", " + data.state + "  " + data.zip + '</p>');
 
  		var phoneNum = $('<div></div>');

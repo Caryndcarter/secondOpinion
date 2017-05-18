@@ -156,7 +156,7 @@ router.get("/about", function(req, res) {
 
 router.post("/dashboard/matches", function (req,res) {
 
-    var currentDoctorId = "0809137a2075b1af5bf27d5f874c7a2a";
+    var currentDoctorId = req.body.id;
     var currentDoctorSpecialty = "";
     var currentDoctorTotal = "";
     var docMatch = "";
@@ -283,7 +283,6 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.bio = data.data.profile.bio;
             docMatch.practice_name = data.data.practices[0].name;
             docMatch.street = data.data.practices[0].visit_address.street;
-            docMatch.street2 = data.data.practices[0].visit_address.street2;
             docMatch.city = data.data.practices[0].visit_address.city;
             docMatch.state = data.data.practices[0].visit_address.state;
             docMatch.zip = data.data.practices[0].visit_address.zip;
