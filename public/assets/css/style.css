@@ -89,10 +89,6 @@ h2 {
 	font-weight: 20px;
 }
 
-.col-md-4 {
-
-}
-
 .information {
 	width: 100%;
 }
@@ -155,4 +151,10 @@ h2 {
 
 .match-image h3{
 	margin: 0px auto 10px auto;
+}
+
+.adminp,
+.about-header,
+.doc-header {
+	text-align: center;
 }
