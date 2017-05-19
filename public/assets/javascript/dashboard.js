@@ -54,7 +54,7 @@ $('.patient-button').on('click', function(event) {
  		matchTxt.addClass('row').addClass('match-text');
  		matchTxt.append('<p>'+ data.bio + '</p>');
 
- 		$('.doc-results').append(imgBox).append(matchTxt);
+ 		$('.doc-results').html(imgBox).append(matchTxt);
 
  	});
 
