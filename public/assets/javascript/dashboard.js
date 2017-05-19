@@ -30,6 +30,8 @@ $('.patient-button').on('click', function(event) {
 
 
  	$.post(currentURL + '/dashboard/matches', {'id': clientData.id}, function(data) {
+        //empties out the doc results on each post
+        $(".doc-results").empty();
  		// console.log('this is the data: ' + data);
 
  		// var matchImg = $('<div></div>');
@@ -53,15 +55,15 @@ $('.patient-button').on('click', function(event) {
  		matchStats.append('<h3>' + data.first_name +' '+ data.last_name + ', '+ data.title + '</h3>');
  		matchStats.append('<p>' + data.specialty + '</p>');
  		matchStats.append('<p> <b>Languages:</b> ' + data.language + "     " + ' <b>Gender:</b> ' + data.gender + '</p>');
- 	
+
  		imgBox.append(matchImg).append(matchStats);
 
  		var matchTxt = $('<div></div>');
- 		matchTxt.addClass('row').addClass('match-text'); 
+ 		matchTxt.addClass('row').addClass('match-text');
  		matchTxt.append('<p>'+ data.bio + '</p>');
- 		
+
  		var contactTxt = $('<div></div>');
- 		contactTxt.addClass('row').addClass('match-text'); 
+ 		contactTxt.addClass('row').addClass('match-text');
  		contactTxt.append('<p> <b>Practice Address: </b>' + data.street + '</p>');
  		contactTxt.append('<p> <b>City, State Zip: </b>' + data.city + ", " + data.state + "  " + data.zip + '</p>');
 
@@ -69,8 +71,8 @@ $('.patient-button').on('click', function(event) {
  		phoneNum.addClass('row').addClass('match-text').addClass('phone');
  		phoneNum.append('<p> <b>Phone: </b>' + data.phone);
 
- 		$('.doc-results').append(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);   
- 		$('.directions').html(data.text); 
+ 		$('.doc-results').append(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);
+ 		$('.directions').html(data.text);
  	});
 
 });
