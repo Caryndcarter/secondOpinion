@@ -17,7 +17,9 @@ router.get("/", function(req, res) {
 //Router to update the current doctor and diagnosis for the logged in patient
 router.put("/dashboard/update-patient/:id", function(req, res) {
     // console.log(req.body);
-
+    console.log(`Activating dashboard update patient
+        Doctor: ${req.body.current_doctor}
+        Dianogsis: ${req.body.diagnosis}`);
     db.Patients.update({
         current_doctor: req.body.current_doctor,
         diagnosis: req.body.diagnosis
@@ -60,6 +62,35 @@ router.put("/admin/add-admin/:id", function(req, res) {
     // console.log(req.body.id);
     db.Patients.update({
         isAdmin: req.body.isAdmin
+        }, {
+        where: {
+            patient_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+
+//Router to unremove a doctor
+router.put("/admin/unremove-doc/:id", function(req, res) {
+    // console.log(req.body);
+    // console.log(req.body.id);
+    db.Doctors.update({
+        removed: req.body.removed
+        }, {
+        where: {
+            doc_id: req.params.id
+        }
+    }).then(function() {
+        res.redirect("/admin");
+    });
+});
+//Router to unremove a patient
+router.put("/admin/unremove-patient/:id", function(req, res) {
+    // console.log(req.body);
+    // console.log(req.body.id);
+    db.Patients.update({
+        removed: req.body.removed
         }, {
         where: {
             patient_id: req.params.id
@@ -135,6 +166,7 @@ router.post("/dashboard/matches", function (req,res) {
     var potentialsArray = [];
     var matchesArray = [];
     var bestMatch = "";
+    var matchText = "";
     var max = 0;
 
     db.Doctors.findAll({
@@ -142,9 +174,13 @@ router.post("/dashboard/matches", function (req,res) {
             bestdoc_id: currentDoctorId
         }
     }).then (function (data) {
-        currentDoctorTotal = data[0].total;
-        currentDoctorSpecialty = data[0].primary_specialty;
+
+        currentDoctorTotal = data[0].dataValues.total;
+        currentDoctorSpecialty = data[0].dataValues.primary_specialty;
         createDocArray(currentDoctorSpecialty);
+        console.log(currentDoctorTotal);
+        console.log(currentDoctorSpecialty);
+        console.log(data);
     });
 
 
@@ -175,9 +211,7 @@ router.post("/dashboard/matches", function (req,res) {
     function doctorsSort (doctorsArray) {
 
         for (var i = 0; i < doctorsArray.length; i++) {
-            if(currentDoctorTotal < doctorsArray[i].total) {
                 totalsArray.push(doctorsArray[i].total);
-            }
         }
 
         getMatches(totalsArray, doctorsArray);
@@ -215,13 +249,22 @@ router.post("/dashboard/matches", function (req,res) {
             }
         }
 
-        bestMatch = matchesArray[0];
+        console.log(matchesArray[0].id)
+        console.log(currentDoctorId); 
 
-        getBestDoc(bestMatch);
+        if(matchesArray[0].bestdoc_id !== currentDoctorId) {
+            bestMatch = matchesArray[0];
+            matchText = "Best Specialist in Your Region";
+        } else {
+            bestMatch = matchesArray[1];
+            matchText = "Your Specialist is the Best. Our Recommendation:";
+        }
+
+        getBestDoc(bestMatch, matchText);
 
     }
 
-    function getBestDoc(bestMatch) {
+    function getBestDoc(bestMatch, matchText) {
 
         var uid = bestMatch.bestdoc_id;
 
@@ -231,8 +274,8 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.first_name = data.data.profile.first_name;
             docMatch.last_name = data.data.profile.last_name;
             docMatch.language = data.data.practices[0].languages[0].name;
-            docMatch.school = data.data.educations[0].school;
-            docMatch.degree = data.data.educations[0].degree;
+            docMatch.education = data.data.educations[0];
+            // docMatch.degree = data.data.educations[0].degree;
             docMatch.title = data.data.profile.title;
             docMatch.specialty = data.data.specialties[0].actor;
             docMatch.gender = data.data.profile.gender;
@@ -240,12 +283,12 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.bio = data.data.profile.bio;
             docMatch.practice_name = data.data.practices[0].name;
             docMatch.street = data.data.practices[0].visit_address.street;
-            docMatch.street2 = data.data.practices[0].visit_address.street2;
             docMatch.city = data.data.practices[0].visit_address.city;
             docMatch.state = data.data.practices[0].visit_address.state;
             docMatch.zip = data.data.practices[0].visit_address.zip;
             docMatch.phone = data.data.practices[0].phones[0].number;
-
+            docMatch.text = matchText;   
+            
             console.log(docMatch);
             res.json(docMatch);
 

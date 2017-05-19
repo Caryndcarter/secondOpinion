@@ -36,8 +36,12 @@ CREATE TABLE patients(
     current_doctor varchar(50) DEFAULT NULL,
     match_doctor varchar(50) DEFAULT NULL,
     diagnosis varchar(50) DEFAULT NULL,
+    last_login DATE,
     isAdmin BOOLEAN DEFAULT 0,
     removed BOOLEAN DEFAULT 0,
-    last_login date(),
+    status ENUM ('active', 'inactive') DEFAULT 'active',
     primary key (patient_id)
 )
+
+
+password if you need it: m5J5V77YhJgu
