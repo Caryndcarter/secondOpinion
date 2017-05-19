@@ -16,6 +16,22 @@ h2 {
 
 }
 
+.page-wrap {
+  min-height: 100%;
+	margin-bottom: -60px; 
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer-hs, .page-wrap:after {
+	height: 60px; 
+}
+.footer-hs {
+  background: orange;
+}
+
 .navigation {
 	background-color: #fff;
 }
