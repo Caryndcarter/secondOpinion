@@ -1,33 +1,33 @@
 # Second Opinion
 
-## Project 2 for Northwestern Coding Boot Camp
+### Project 2 for Northwestern Coding Boot Camp
 
-### Created By Mutant, MD
+## Created By Mutant, MD
 * [Caryn Carter](https://github.com/)
 * [Andy Hang](https://github.com/ahang)
 * [Laura McGinn](https://github.com/LauraMcG)
 * [Jared Moscrip](https://github.com/1jared123)
 * [Paul Sulikowski](https://github.com/psulikow)
 
-### Objective
+## Objective
 Second Opinion was developed by our team to assist patients who are seeking additional advice on a sudden diagnosis and have been given a risky or intense treatment recommendations.
 
-### Technology Used
+## Technology Used
 * [NodeJS](https://nodejs.org/en/), [Express](https://expressjs.com/)
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
 * [Passport](http://passportjs.org/)
 * [Sequelizejs](http://docs.sequelizejs.com/)
 * [jQuery](https://jquery.com/)
 
-### App Functionality
+## App Functionality
 The user, aka the patient, will create an account to login to view the dashboard. The user will be required to input their diagnosis and current doctor upon entering the dashboard. Once they have submitted their diagnosis and current doctor, the app will do an ajax call to check the current doctor's rating and pick a similar or better rating from the list of available doctors and sends the results to the dashboard. The patient will then have the information available to make an appointment with the suggested doctor.
 
-### How to use
+## How to use
 
-Viewing it Online
+### Viewing it Online
 1. Access the link [here](http://secondopinionfinder.herokuapp.com/)
 
-Setup and Running the App Locally
+### Setup and Running the App Locally
 
 1. Clone Repo and extract to accessible location
 2. Navigate in `Git` to root of the extracted folder of `secondOpinion`
