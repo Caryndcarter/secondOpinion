@@ -171,6 +171,8 @@ router.post("/dashboard/matches", function (req,res) {
     var matchText = "";
     var max = 0;
 
+// go to Doctor's Table and grab all values for the current Doctor and assign variables to the total and specialty
+
     db.Doctors.findAll({
         where: {
             bestdoc_id: currentDoctorId
@@ -180,12 +182,11 @@ router.post("/dashboard/matches", function (req,res) {
         currentDoctorTotal = data[0].dataValues.total;
         currentDoctorSpecialty = data[0].dataValues.primary_specialty;
         createDocArray(currentDoctorSpecialty);
-        console.log(currentDoctorTotal);
-        console.log(currentDoctorSpecialty);
-        console.log(data);
+    
     });
 
-
+//find all doctors in the doctors table who have a specialty that matches the current Doctor's
+//create an object for all those doctors with certain needed values later, push each to an array
     function createDocArray (currentDoctorSpecialty) {
 
             db.Doctors.findAll({
@@ -211,6 +212,8 @@ router.post("/dashboard/matches", function (req,res) {
 
     }
 
+
+//take all the doctors' totals and put them into an array
     function doctorsSort (doctorsArray) {
 
         for (var i = 0; i < doctorsArray.length; i++) {
@@ -220,6 +223,10 @@ router.post("/dashboard/matches", function (req,res) {
         getMatches(totalsArray, doctorsArray);
 
     }
+
+//take the doctors array and the totals array and find the max of the totals array and take the 
+//index of that in the doctors array and push it to the potentials array, do this for all the totals
+//so as to resort the doctors array essentially
 
      function getMatches (totalsArray, doctorsArray) {
 
@@ -243,6 +250,10 @@ router.post("/dashboard/matches", function (req,res) {
 
     }
 
+//take the top five potential doctors and put them in the matches array
+//if the top match array doctor is also the current doctor, take the 2nd best doctor 
+//update the database with the best match doctor
+
     function getFinalists(potentialsArray, matchesArray) {
 
         for (var i = 0; i < potentialsArray.length; i++) {
@@ -251,9 +262,6 @@ router.post("/dashboard/matches", function (req,res) {
 
             }
         }
-
-        console.log(matchesArray[0].id)
-        console.log(currentDoctorId); 
 
         if(matchesArray[0].bestdoc_id !== currentDoctorId) {
             bestMatch = matchesArray[0];
@@ -276,6 +284,9 @@ router.post("/dashboard/matches", function (req,res) {
       getBestDoc(bestMatch, matchText);
         
     }
+
+//take the best match doctor and hit the 'BETTER DOCTOR API' and get that doctor's full stats, picture, bio etc. 
+//send all of that to the front end as a docMatch object.
 
     function getBestDoc(bestMatch, matchText) {
 
@@ -301,8 +312,7 @@ router.post("/dashboard/matches", function (req,res) {
             docMatch.zip = data.data.practices[0].visit_address.zip;
             docMatch.phone = data.data.practices[0].phones[0].number;
             docMatch.text = matchText;   
-            
-            console.log(docMatch);
+     
             res.json(docMatch);
 
         });
@@ -312,16 +322,6 @@ router.post("/dashboard/matches", function (req,res) {
 });
 
 
-
-
-
-//pull all the doctor data from MySQL
-    //Feed the relevant information into the doctor section of the  handlebars template
-    //for now, displaying a dummy page.
-    // res.render('admin', {doctors: results});
-//Pull all the patient data from MySQL
-    //Feed the relevant information into the patient section of the handlebars template
-    // res.json(dbDoctors);
 //keeping below for reference
 // res.render("admin");
 
