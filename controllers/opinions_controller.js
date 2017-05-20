@@ -279,45 +279,49 @@ router.post("/dashboard/matches", function (req,res) {
                 }
             }).then(function() {
                 console.log("table updated!")
+
             }); 
 
-      getBestDoc(bestMatch, matchText);
+
+      getBestDoc(bestMatch, matchText, matchesArray);
         
     }
 
 //take the best match doctor and hit the 'BETTER DOCTOR API' and get that doctor's full stats, picture, bio etc. 
 //send all of that to the front end as a docMatch object.
 
-    function getBestDoc(bestMatch, matchText) {
+    function getBestDoc(bestMatch, matchText, matchesArray) {
+            
+            var uid = bestMatch.bestdoc_id;
+            console.log(uid);
 
-        var uid = bestMatch.bestdoc_id;
+            client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, response) {
 
-        client.get("https://api.betterdoctor.com/2016-03-01/doctors/"+uid+"?user_key=d8943b3e452eb1a5bbf27cdab4f4bd92", function (data, response) {
+                docMatch = new Object ();
+                docMatch.first_name = data.data.profile.first_name;
+                docMatch.last_name = data.data.profile.last_name;
+                docMatch.language = data.data.practices[0].languages[0].name;
+                docMatch.education = data.data.educations[0];
+                // docMatch.degree = data.data.educations[0].degree;
+                docMatch.title = data.data.profile.title;
+                docMatch.specialty = data.data.specialties[0].actor;
+                docMatch.gender = data.data.profile.gender;
+                docMatch.image = data.data.profile.image_url;
+                docMatch.bio = data.data.profile.bio;
+                docMatch.practice_name = data.data.practices[0].name;
+                docMatch.street = data.data.practices[0].visit_address.street;
+                docMatch.city = data.data.practices[0].visit_address.city;
+                docMatch.state = data.data.practices[0].visit_address.state;
+                docMatch.zip = data.data.practices[0].visit_address.zip;
+                docMatch.phone = data.data.practices[0].phones[0].number;
+                docMatch.text = matchText;   
+         
+                res.json(docMatch);
 
-            docMatch = new Object ();
-            docMatch.first_name = data.data.profile.first_name;
-            docMatch.last_name = data.data.profile.last_name;
-            docMatch.language = data.data.practices[0].languages[0].name;
-            docMatch.education = data.data.educations[0];
-            // docMatch.degree = data.data.educations[0].degree;
-            docMatch.title = data.data.profile.title;
-            docMatch.specialty = data.data.specialties[0].actor;
-            docMatch.gender = data.data.profile.gender;
-            docMatch.image = data.data.profile.image_url;
-            docMatch.bio = data.data.profile.bio;
-            docMatch.practice_name = data.data.practices[0].name;
-            docMatch.street = data.data.practices[0].visit_address.street;
-            docMatch.city = data.data.practices[0].visit_address.city;
-            docMatch.state = data.data.practices[0].visit_address.state;
-            docMatch.zip = data.data.practices[0].visit_address.zip;
-            docMatch.phone = data.data.practices[0].phones[0].number;
-            docMatch.text = matchText;   
-     
-            res.json(docMatch);
-
-        });
-
+            });
+        
     }
+
 
 });
 
