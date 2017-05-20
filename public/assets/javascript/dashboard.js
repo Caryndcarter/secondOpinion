@@ -1,5 +1,5 @@
 console.log("dashboard.js loaded");
-
+ 
 
 $('.patient-button').on('click', function(event) {
 
@@ -19,19 +19,16 @@ $('.patient-button').on('click', function(event) {
 
  	console.log(docID);
 
- 	$.ajax({
-    url: currentURL + '/dashboard/update-patient/:id',
-    type: 'PUT',
-    success: function(result) {
-        console.log('THE PUT WAS SUCCESSFUL');
-    	}
-	});
-
+    $.post(currentURL + '/dashboard/update-patient/', {"current_doctor": clientData.current_doctor, "diagnosis": clientData.diagnosis}, function(data) {
+        console.log("the post was successful");
+    });
 
 
  	$.post(currentURL + '/dashboard/matches', {'id': clientData.id}, function(data) {
         //empties out the doc results on each post
         $(".doc-results").empty();
+        $(".doc-results").append("<h2>" + data.text + "</h2><br><br>");
+        
  		// console.log('this is the data: ' + data);
 
  		// var matchImg = $('<div></div>');
@@ -42,6 +39,8 @@ $('.patient-button').on('click', function(event) {
  		// matchTxt.addClass('col-md-9');
  		// matchTxt.append('<h3>' + 'CHECK OUT THIS DOCTOR' + '</h3>');
  		// matchTxt.append(data);
+
+        
 
  		var imgBox = $('<div></div>');
  		imgBox.addClass('row').addClass('match-image');
@@ -71,8 +70,8 @@ $('.patient-button').on('click', function(event) {
  		phoneNum.addClass('row').addClass('match-text').addClass('phone');
  		phoneNum.append('<p> <b>Phone: </b>' + data.phone);
 
- 		$('.doc-results').html(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);   
- 		$('.directions').html(data.text); 
+ 		$('.doc-results').append(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);   
+ 		
  	});
 
 });

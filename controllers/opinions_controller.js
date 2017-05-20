@@ -14,26 +14,6 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
-//Router to update the current doctor and diagnosis for the logged in patient
-router.put("/dashboard/update-patient/:id", function(req, res) {
-    // console.log(req.body);
-    console.log(`Activating dashboard update patient
-        Doctor: ${req.body.current_doctor}
-        Dianogsis: ${req.body.diagnosis}`);
-    db.Patients.update({
-        current_doctor: req.body.current_doctor,
-        diagnosis: req.body.diagnosis
-    }, {
-        where: {
-            patient_id: req.params.id
-        }
-    }).then(function(dbPatients) {
-        //send the results of the doctor match as a response object
-
-        res.json(dbPatients);
-
-    });
-});
 
 //Router to get the admin page. Checks if you are an admin before rendering. If you aren't render the 404 page.
 //If admin, have sequelize grabs all the doctor and patient data and renders the admin page with the following datasets
@@ -54,6 +34,28 @@ router.get("/admin", isLoggedIn, function(req, res) {
     } else {
         res.render("404");
     }
+});
+
+//Router to update the current doctor and diagnosis for the logged in patient
+router.post("/dashboard/update-patient/", function(req, res) {
+        // console.log(req.body);
+        console.log(`Activating dashboard update patient
+            Doctor: ${req.body.current_doctor}
+            Diagnosis: ${req.body.diagnosis}`);
+        console.log(req.body);
+        db.Patients.update({
+            current_doctor: req.body.current_doctor,
+            diagnosis: req.body.diagnosis
+        }, {
+            where: {
+                patient_id: req.user.patient_id
+            }
+        }).then(function(dbPatients) {
+            //send the results of the doctor match as a response object
+
+            res.json(dbPatients);
+
+        });
 });
 
 //Router to update to add an admin based on the current Patients table
@@ -196,6 +198,7 @@ router.post("/dashboard/matches", function (req,res) {
 
                         docObject = new Object ();
                         docObject.id = data[i].doc_id;
+                        docObject.name = data[i].first_name + " " + data[i].last_name; 
                         docObject.bestdoc_id = data[i].bestdoc_id;
                         docObject.total = data[i].total;
 
@@ -260,8 +263,18 @@ router.post("/dashboard/matches", function (req,res) {
             matchText = "Your Specialist is the Best. Our Recommendation:";
         }
 
-        getBestDoc(bestMatch, matchText);
+            db.Patients.update({
+                match_doctor: bestMatch.name
+            }, {
+                where: {
+                    patient_id: req.user.patient_id
+                }
+            }).then(function() {
+                console.log("table updated!")
+            }); 
 
+      getBestDoc(bestMatch, matchText);
+        
     }
 
     function getBestDoc(bestMatch, matchText) {
