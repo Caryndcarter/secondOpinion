@@ -16,6 +16,22 @@ h2 {
 
 }
 
+.page-wrap {
+  min-height: 100%;
+	margin-bottom: -60px; 
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer-hs, .page-wrap:after {
+	height: 60px; 
+}
+.footer-hs {
+  background: orange;
+}
+
 .navigation {
 	background-color: #fff;
 }
@@ -71,10 +87,6 @@ h2 {
 
 .all-doctors-page {
 	font-weight: 20px;
-}
-
-.col-md-4 {
-
 }
 
 .information {
@@ -139,4 +151,10 @@ h2 {
 
 .match-image h3{
 	margin: 0px auto 10px auto;
+}
+
+.adminp,
+.about-header,
+.doc-header {
+	text-align: center;
 }

@@ -52,10 +52,10 @@ var authroute = require("./controllers/authcontroller.js")(passport);
 app.use("/", opinions);
 app.use("/", authroute);
 
-// Default Page for all unknown url
-// app.get("*", function(req, res) {
-// 	res.redirect("/");
-// });
+//Default Page for all unknown url
+app.get("*", function(req, res) {
+	res.redirect("/404");
+});
 // //404 pages
 // app.use(function (req, res) {
 //   // res.status(404).send("Sorry can't find that!");
