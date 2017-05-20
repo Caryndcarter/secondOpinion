@@ -13,6 +13,7 @@ h1 {
 h2 {
 	font-size: 24px;
 	color: #2eb8b8;
+	text-shadow: 1px 1px 1px #ccc;
 
 }
 
@@ -135,6 +136,12 @@ h2 {
 }
 
 /* DASHBOARD-SPECIFIC  */
+#diagnosis,
+.doctors-select{
+	width: 75%;
+	margin-bottom: 15px;
+}
+
 .add-patient div {
 	padding: 5px;
 }
@@ -147,10 +154,24 @@ h2 {
 .match-image img{
 	width: 100%;
 	height: 100%;
+	margin-bottom: 10px;
 }
 
 .match-image h3{
 	margin: 0px auto 10px auto;
+	text-shadow: 1px 1px 1px #ccc;
+/*	font-style: italic;
+	font-weight: bold;*/
+	color: #2eb8b8;
+}
+
+.match-image h4{
+	font-weight: bold;
+	color: #1A3E5E;
+}
+
+.doc-results b {
+	color: #325ab7;
 }
 
 .adminp,

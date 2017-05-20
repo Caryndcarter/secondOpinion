@@ -53,8 +53,8 @@ $('.patient-button').on('click', function(event) {
  		var matchStats = $('<div></div>');
  		matchStats.addClass('col-md-9').addClass('match-image');
  		matchStats.append('<h3>' + data.first_name +' '+ data.last_name + ', '+ data.title + '</h3>');
- 		matchStats.append('<p>' + data.specialty + '</p>');
- 		matchStats.append('<p> <b>Languages:</b> ' + data.language + "     " + ' <b>Gender:</b> ' + data.gender + '</p>');
+ 		matchStats.append('<p><h4>' + data.specialty + '</h4></p>');
+ 		matchStats.append('<p> <b>Languages:</b> ' + data.language + "</p><p>" + ' <b>Gender:</b> ' + data.gender + '</p>');
 
  		imgBox.append(matchImg).append(matchStats);
 
