@@ -1,8 +1,8 @@
-# Second Opinion - Mutant, MD
+# Second Opinion
 
-## Project 2 for NU Coding Boot Camp
+## Project 2 for Northwestern Coding Boot Camp
 
-### Created By
+### Created By Mutant, MD
 * [Caryn Carter](https://github.com/)
 * [Andy Hang](https://github.com/ahang)
 * [Laura McGinn](https://github.com/LauraMcG)
@@ -10,7 +10,7 @@
 * [Paul Sulikowski](https://github.com/psulikow)
 
 ### Objective
-Second Opinion was developed, by 5 developers, to assists patients who desire additional advice on a sudden diagnosis and have been given a risky or intense treatment recommendations.
+Second Opinion was developed by our team to assist patients who are seeking additional advice on a sudden diagnosis and have been given a risky or intense treatment recommendations.
 
 ### Technology Used
 * [NodeJS](https://nodejs.org/en/), [Express](https://expressjs.com/)
@@ -20,7 +20,7 @@ Second Opinion was developed, by 5 developers, to assists patients who desire ad
 * [jQuery](https://jquery.com/)
 
 ### App Functionality
-The user, aka the patient, will create an account to login to view the dashboard. The user will be required to input their diagnosis and current doctor upon entering the dashboard. Upon submission of their diagnosis and current doctor, the app will do an ajax call to check the current doctor's rating and pick a similar or better rating from the list of available doctors and sends the results to the dashboard. The patient will then have the information available to make an appointment with the suggested doctor.
+The user, aka the patient, will create an account to login to view the dashboard. The user will be required to input their diagnosis and current doctor upon entering the dashboard. Once they have submitted their diagnosis and current doctor, the app will do an ajax call to check the current doctor's rating and pick a similar or better rating from the list of available doctors and sends the results to the dashboard. The patient will then have the information available to make an appointment with the suggested doctor.
 
 ### How to use
 
