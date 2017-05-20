@@ -71,7 +71,7 @@ $('.patient-button').on('click', function(event) {
  		phoneNum.addClass('row').addClass('match-text').addClass('phone');
  		phoneNum.append('<p> <b>Phone: </b>' + data.phone);
 
- 		$('.doc-results').html(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);   
+ 		$('.doc-results').append(imgBox).append(matchTxt).append(contactTxt).append(phoneNum);   
  		$('.directions').html(data.text); 
  	});
 
