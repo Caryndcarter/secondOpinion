@@ -317,12 +317,12 @@ router.post("/dashboard/matches", function (req,res) {
                 docMatch.text = matchText;   
          
                 res.json(docMatch);
+              
+            }); 
 
-            });
-        
     }
 
-
+    
 });
 
 
