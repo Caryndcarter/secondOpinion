@@ -3,7 +3,7 @@
 ### Project 2 for Northwestern Coding Boot Camp
 
 ## Created By Mutant, MD
-* [Caryn Carter](https://github.com/)
+* [Caryn Carter](https://github.com/Caryndcarter)
 * [Andy Hang](https://github.com/ahang)
 * [Laura McGinn](https://github.com/LauraMcG)
 * [Jared Moscrip](https://github.com/1jared123)
